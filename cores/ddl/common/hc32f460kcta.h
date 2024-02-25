@@ -1,7 +1,7 @@
 /**
  *******************************************************************************
- * @file  HC32F460.h
- * @brief Headerfile for HC32F460 series MCU
+ * @file  HC32F460KCTA.h
+ * @brief Headerfile for HC32F460KCTA series MCU
  @verbatim
    Change Logs:
    Date             Author          Notes
@@ -18,8 +18,8 @@
  *******************************************************************************
  **/
 
-#ifndef __HC32F460_H__
-#define __HC32F460_H__
+#ifndef __HC32F460KCTA_H__
+#define __HC32F460KCTA_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,8 +29,8 @@ extern "C" {
  * Configuration of the Cortex-M4 Processor and Core Peripherals
  ******************************************************************************/
 #define __CM4_REV                 1       /*!< Core revision r0p1                                   */
-#define __MPU_PRESENT             1       /*!< HC32F460 provides an MPU                             */
-#define __NVIC_PRIO_BITS          4       /*!< HC32F460 uses 4 Bits for the Priority Levels         */
+#define __MPU_PRESENT             1       /*!< HC32F460KCTA provides an MPU                             */
+#define __NVIC_PRIO_BITS          4       /*!< HC32F460KCTA uses 4 Bits for the Priority Levels         */
 #define __Vendor_SysTickConfig    0       /*!< Set to 1 if different SysTick Config is used         */
 #define __FPU_PRESENT             1       /*!< FPU present                                          */
 
@@ -3182,6 +3182,41 @@ typedef struct
     __IO uint16_t POT14                     : 1;
     __IO uint16_t POT15                     : 1;
 } stc_port_potr_field_t;
+
+typedef struct
+{
+    uint16_t RESERVED0                      : 2;
+    __IO uint16_t POUT02                    : 1;
+    uint16_t RESERVED3                      :13;
+} stc_port_podrd_field_t;
+
+typedef struct
+{
+    uint16_t RESERVED0                      : 2;
+    __IO uint16_t POUTE02                   : 1;
+    uint16_t RESERVED3                      :13;
+} stc_port_poerd_field_t;
+
+typedef struct
+{
+    uint16_t RESERVED0                      : 2;
+    __IO uint16_t POS02                     : 1;
+    uint16_t RESERVED3                      :13;
+} stc_port_posrd_field_t;
+
+typedef struct
+{
+    uint16_t RESERVED0                      : 2;
+    __IO uint16_t POR02                     : 1;
+    uint16_t RESERVED3                      :13;
+} stc_port_porrd_field_t;
+
+typedef struct
+{
+    uint16_t RESERVED0                      : 2;
+    __IO uint16_t POT02                     : 1;
+    uint16_t RESERVED3                      :13;
+} stc_port_potrd_field_t;
 
 typedef struct
 {
@@ -8408,67 +8443,35 @@ typedef struct
     union
     {
         __IO uint16_t PODRD;
-        stc_port_podr_field_t PODRD_f;
+        stc_port_podrd_field_t PODRD_f;
     };
     union
     {
         __IO uint16_t POERD;
-        stc_port_poer_field_t POERD_f;
+        stc_port_poerd_field_t POERD_f;
     };
     union
     {
         __IO uint16_t POSRD;
-        stc_port_posr_field_t POSRD_f;
+        stc_port_posrd_field_t POSRD_f;
     };
     union
     {
         __IO uint16_t PORRD;
-        stc_port_porr_field_t PORRD_f;
+        stc_port_porrd_field_t PORRD_f;
     };
     union
     {
         __IO uint16_t POTRD;
-        stc_port_potr_field_t POTRD_f;
+        stc_port_potrd_field_t POTRD_f;
     };
-    uint8_t RESERVED7[2];
-    union
-    {
-        __IO uint16_t PIDRE;
-        stc_port_pidr_field_t PIDRE_f;
-    };
-    uint8_t RESERVED8[2];
-    union
-    {
-        __IO uint16_t PODRE;
-        stc_port_podr_field_t PODRE_f;
-    };
-    union
-    {
-        __IO uint16_t POERE;
-        stc_port_poer_field_t POERE_f;
-    };
-    union
-    {
-        __IO uint16_t POSRE;
-        stc_port_posr_field_t POSRE_f;
-    };
-    union
-    {
-        __IO uint16_t PORRE;
-        stc_port_porr_field_t PORRE_f;
-    };
-    union
-    {
-        __IO uint16_t POTRE;
-        stc_port_potr_field_t POTRE_f;
-    };
-    uint8_t RESERVED9[2];
+    uint8_t RESERVED7[18];
     union
     {
         __IO uint16_t PIDRH;
         stc_port_pidrh_field_t PIDRH_f;
     };
-    uint8_t RESERVED10[2];
+    uint8_t RESERVED8[2];
     union
     {
         __IO uint16_t PODRH;
@@ -8494,13 +8497,13 @@ typedef struct
         __IO uint16_t POTRH;
         stc_port_potrh_field_t POTRH_f;
     };
-    uint8_t RESERVED11[918];
+    uint8_t RESERVED9[918];
     union
     {
         __IO uint16_t PSPCR;
         stc_port_pspcr_field_t PSPCR_f;
     };
-    uint8_t RESERVED12[2];
+    uint8_t RESERVED10[2];
     union
     {
         __IO uint16_t PCCR;
@@ -8516,7 +8519,7 @@ typedef struct
         __IO uint16_t PWPR;
         stc_port_pwpr_field_t PWPR_f;
     };
-    uint8_t RESERVED13[2];
+    uint8_t RESERVED11[2];
     union
     {
         __IO uint16_t PCRA0;
@@ -8997,26 +9000,7 @@ typedef struct
         __IO uint16_t PFSRC15;
         stc_port_pfsr_field_t PFSRC15_f;
     };
-    union
-    {
-        __IO uint16_t PCRD0;
-        stc_port_pcr_field_t PCRD0_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD0;
-        stc_port_pfsr_field_t PFSRD0_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD1;
-        stc_port_pcr_field_t PCRD1_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD1;
-        stc_port_pfsr_field_t PFSRD1_f;
-    };
+    uint8_t RESERVED12[8];
     union
     {
         __IO uint16_t PCRD2;
@@ -9027,296 +9011,7 @@ typedef struct
         __IO uint16_t PFSRD2;
         stc_port_pfsr_field_t PFSRD2_f;
     };
-    union
-    {
-        __IO uint16_t PCRD3;
-        stc_port_pcr_field_t PCRD3_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD3;
-        stc_port_pfsr_field_t PFSRD3_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD4;
-        stc_port_pcr_field_t PCRD4_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD4;
-        stc_port_pfsr_field_t PFSRD4_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD5;
-        stc_port_pcr_field_t PCRD5_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD5;
-        stc_port_pfsr_field_t PFSRD5_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD6;
-        stc_port_pcr_field_t PCRD6_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD6;
-        stc_port_pfsr_field_t PFSRD6_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD7;
-        stc_port_pcr_field_t PCRD7_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD7;
-        stc_port_pfsr_field_t PFSRD7_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD8;
-        stc_port_pcr_field_t PCRD8_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD8;
-        stc_port_pfsr_field_t PFSRD8_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD9;
-        stc_port_pcr_field_t PCRD9_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD9;
-        stc_port_pfsr_field_t PFSRD9_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD10;
-        stc_port_pcr_field_t PCRD10_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD10;
-        stc_port_pfsr_field_t PFSRD10_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD11;
-        stc_port_pcr_field_t PCRD11_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD11;
-        stc_port_pfsr_field_t PFSRD11_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD12;
-        stc_port_pcr_field_t PCRD12_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD12;
-        stc_port_pfsr_field_t PFSRD12_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD13;
-        stc_port_pcr_field_t PCRD13_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD13;
-        stc_port_pfsr_field_t PFSRD13_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD14;
-        stc_port_pcr_field_t PCRD14_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD14;
-        stc_port_pfsr_field_t PFSRD14_f;
-    };
-    union
-    {
-        __IO uint16_t PCRD15;
-        stc_port_pcr_field_t PCRD15_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRD15;
-        stc_port_pfsr_field_t PFSRD15_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE0;
-        stc_port_pcr_field_t PCRE0_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE0;
-        stc_port_pfsr_field_t PFSRE0_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE1;
-        stc_port_pcr_field_t PCRE1_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE1;
-        stc_port_pfsr_field_t PFSRE1_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE2;
-        stc_port_pcr_field_t PCRE2_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE2;
-        stc_port_pfsr_field_t PFSRE2_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE3;
-        stc_port_pcr_field_t PCRE3_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE3;
-        stc_port_pfsr_field_t PFSRE3_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE4;
-        stc_port_pcr_field_t PCRE4_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE4;
-        stc_port_pfsr_field_t PFSRE4_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE5;
-        stc_port_pcr_field_t PCRE5_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE5;
-        stc_port_pfsr_field_t PFSRE5_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE6;
-        stc_port_pcr_field_t PCRE6_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE6;
-        stc_port_pfsr_field_t PFSRE6_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE7;
-        stc_port_pcr_field_t PCRE7_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE7;
-        stc_port_pfsr_field_t PFSRE7_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE8;
-        stc_port_pcr_field_t PCRE8_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE8;
-        stc_port_pfsr_field_t PFSRE8_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE9;
-        stc_port_pcr_field_t PCRE9_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE9;
-        stc_port_pfsr_field_t PFSRE9_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE10;
-        stc_port_pcr_field_t PCRE10_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE10;
-        stc_port_pfsr_field_t PFSRE10_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE11;
-        stc_port_pcr_field_t PCRE11_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE11;
-        stc_port_pfsr_field_t PFSRE11_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE12;
-        stc_port_pcr_field_t PCRE12_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE12;
-        stc_port_pfsr_field_t PFSRE12_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE13;
-        stc_port_pcr_field_t PCRE13_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE13;
-        stc_port_pfsr_field_t PFSRE13_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE14;
-        stc_port_pcr_field_t PCRE14_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE14;
-        stc_port_pfsr_field_t PFSRE14_f;
-    };
-    union
-    {
-        __IO uint16_t PCRE15;
-        stc_port_pcr_field_t PCRE15_f;
-    };
-    union
-    {
-        __IO uint16_t PFSRE15;
-        stc_port_pfsr_field_t PFSRE15_f;
-    };
+    uint8_t RESERVED13[116];
     union
     {
         __IO uint16_t PCRH0;
@@ -20046,182 +19741,11 @@ typedef struct
 #define bM4_PORT_PIDRD_PIN13                      (*((volatile unsigned int*)(0x42A70634UL)))
 #define bM4_PORT_PIDRD_PIN14                      (*((volatile unsigned int*)(0x42A70638UL)))
 #define bM4_PORT_PIDRD_PIN15                      (*((volatile unsigned int*)(0x42A7063CUL)))
-#define bM4_PORT_PODRD_POUT00                     (*((volatile unsigned int*)(0x42A70680UL)))
-#define bM4_PORT_PODRD_POUT01                     (*((volatile unsigned int*)(0x42A70684UL)))
 #define bM4_PORT_PODRD_POUT02                     (*((volatile unsigned int*)(0x42A70688UL)))
-#define bM4_PORT_PODRD_POUT03                     (*((volatile unsigned int*)(0x42A7068CUL)))
-#define bM4_PORT_PODRD_POUT04                     (*((volatile unsigned int*)(0x42A70690UL)))
-#define bM4_PORT_PODRD_POUT05                     (*((volatile unsigned int*)(0x42A70694UL)))
-#define bM4_PORT_PODRD_POUT06                     (*((volatile unsigned int*)(0x42A70698UL)))
-#define bM4_PORT_PODRD_POUT07                     (*((volatile unsigned int*)(0x42A7069CUL)))
-#define bM4_PORT_PODRD_POUT08                     (*((volatile unsigned int*)(0x42A706A0UL)))
-#define bM4_PORT_PODRD_POUT09                     (*((volatile unsigned int*)(0x42A706A4UL)))
-#define bM4_PORT_PODRD_POUT10                     (*((volatile unsigned int*)(0x42A706A8UL)))
-#define bM4_PORT_PODRD_POUT11                     (*((volatile unsigned int*)(0x42A706ACUL)))
-#define bM4_PORT_PODRD_POUT12                     (*((volatile unsigned int*)(0x42A706B0UL)))
-#define bM4_PORT_PODRD_POUT13                     (*((volatile unsigned int*)(0x42A706B4UL)))
-#define bM4_PORT_PODRD_POUT14                     (*((volatile unsigned int*)(0x42A706B8UL)))
-#define bM4_PORT_PODRD_POUT15                     (*((volatile unsigned int*)(0x42A706BCUL)))
-#define bM4_PORT_POERD_POUTE00                    (*((volatile unsigned int*)(0x42A706C0UL)))
-#define bM4_PORT_POERD_POUTE01                    (*((volatile unsigned int*)(0x42A706C4UL)))
 #define bM4_PORT_POERD_POUTE02                    (*((volatile unsigned int*)(0x42A706C8UL)))
-#define bM4_PORT_POERD_POUTE03                    (*((volatile unsigned int*)(0x42A706CCUL)))
-#define bM4_PORT_POERD_POUTE04                    (*((volatile unsigned int*)(0x42A706D0UL)))
-#define bM4_PORT_POERD_POUTE05                    (*((volatile unsigned int*)(0x42A706D4UL)))
-#define bM4_PORT_POERD_POUTE06                    (*((volatile unsigned int*)(0x42A706D8UL)))
-#define bM4_PORT_POERD_POUTE07                    (*((volatile unsigned int*)(0x42A706DCUL)))
-#define bM4_PORT_POERD_POUTE08                    (*((volatile unsigned int*)(0x42A706E0UL)))
-#define bM4_PORT_POERD_POUTE09                    (*((volatile unsigned int*)(0x42A706E4UL)))
-#define bM4_PORT_POERD_POUTE10                    (*((volatile unsigned int*)(0x42A706E8UL)))
-#define bM4_PORT_POERD_POUTE11                    (*((volatile unsigned int*)(0x42A706ECUL)))
-#define bM4_PORT_POERD_POUTE12                    (*((volatile unsigned int*)(0x42A706F0UL)))
-#define bM4_PORT_POERD_POUTE13                    (*((volatile unsigned int*)(0x42A706F4UL)))
-#define bM4_PORT_POERD_POUTE14                    (*((volatile unsigned int*)(0x42A706F8UL)))
-#define bM4_PORT_POERD_POUTE15                    (*((volatile unsigned int*)(0x42A706FCUL)))
-#define bM4_PORT_POSRD_POS00                      (*((volatile unsigned int*)(0x42A70700UL)))
-#define bM4_PORT_POSRD_POS01                      (*((volatile unsigned int*)(0x42A70704UL)))
 #define bM4_PORT_POSRD_POS02                      (*((volatile unsigned int*)(0x42A70708UL)))
-#define bM4_PORT_POSRD_POS03                      (*((volatile unsigned int*)(0x42A7070CUL)))
-#define bM4_PORT_POSRD_POS04                      (*((volatile unsigned int*)(0x42A70710UL)))
-#define bM4_PORT_POSRD_POS05                      (*((volatile unsigned int*)(0x42A70714UL)))
-#define bM4_PORT_POSRD_POS06                      (*((volatile unsigned int*)(0x42A70718UL)))
-#define bM4_PORT_POSRD_POS07                      (*((volatile unsigned int*)(0x42A7071CUL)))
-#define bM4_PORT_POSRD_POS08                      (*((volatile unsigned int*)(0x42A70720UL)))
-#define bM4_PORT_POSRD_POS09                      (*((volatile unsigned int*)(0x42A70724UL)))
-#define bM4_PORT_POSRD_POS10                      (*((volatile unsigned int*)(0x42A70728UL)))
-#define bM4_PORT_POSRD_POS11                      (*((volatile unsigned int*)(0x42A7072CUL)))
-#define bM4_PORT_POSRD_POS12                      (*((volatile unsigned int*)(0x42A70730UL)))
-#define bM4_PORT_POSRD_POS13                      (*((volatile unsigned int*)(0x42A70734UL)))
-#define bM4_PORT_POSRD_POS14                      (*((volatile unsigned int*)(0x42A70738UL)))
-#define bM4_PORT_POSRD_POS15                      (*((volatile unsigned int*)(0x42A7073CUL)))
-#define bM4_PORT_PORRD_POR00                      (*((volatile unsigned int*)(0x42A70740UL)))
-#define bM4_PORT_PORRD_POR01                      (*((volatile unsigned int*)(0x42A70744UL)))
 #define bM4_PORT_PORRD_POR02                      (*((volatile unsigned int*)(0x42A70748UL)))
-#define bM4_PORT_PORRD_POR03                      (*((volatile unsigned int*)(0x42A7074CUL)))
-#define bM4_PORT_PORRD_POR04                      (*((volatile unsigned int*)(0x42A70750UL)))
-#define bM4_PORT_PORRD_POR05                      (*((volatile unsigned int*)(0x42A70754UL)))
-#define bM4_PORT_PORRD_POR06                      (*((volatile unsigned int*)(0x42A70758UL)))
-#define bM4_PORT_PORRD_POR07                      (*((volatile unsigned int*)(0x42A7075CUL)))
-#define bM4_PORT_PORRD_POR08                      (*((volatile unsigned int*)(0x42A70760UL)))
-#define bM4_PORT_PORRD_POR09                      (*((volatile unsigned int*)(0x42A70764UL)))
-#define bM4_PORT_PORRD_POR10                      (*((volatile unsigned int*)(0x42A70768UL)))
-#define bM4_PORT_PORRD_POR11                      (*((volatile unsigned int*)(0x42A7076CUL)))
-#define bM4_PORT_PORRD_POR12                      (*((volatile unsigned int*)(0x42A70770UL)))
-#define bM4_PORT_PORRD_POR13                      (*((volatile unsigned int*)(0x42A70774UL)))
-#define bM4_PORT_PORRD_POR14                      (*((volatile unsigned int*)(0x42A70778UL)))
-#define bM4_PORT_PORRD_POR15                      (*((volatile unsigned int*)(0x42A7077CUL)))
-#define bM4_PORT_POTRD_POT00                      (*((volatile unsigned int*)(0x42A70780UL)))
-#define bM4_PORT_POTRD_POT01                      (*((volatile unsigned int*)(0x42A70784UL)))
 #define bM4_PORT_POTRD_POT02                      (*((volatile unsigned int*)(0x42A70788UL)))
-#define bM4_PORT_POTRD_POT03                      (*((volatile unsigned int*)(0x42A7078CUL)))
-#define bM4_PORT_POTRD_POT04                      (*((volatile unsigned int*)(0x42A70790UL)))
-#define bM4_PORT_POTRD_POT05                      (*((volatile unsigned int*)(0x42A70794UL)))
-#define bM4_PORT_POTRD_POT06                      (*((volatile unsigned int*)(0x42A70798UL)))
-#define bM4_PORT_POTRD_POT07                      (*((volatile unsigned int*)(0x42A7079CUL)))
-#define bM4_PORT_POTRD_POT08                      (*((volatile unsigned int*)(0x42A707A0UL)))
-#define bM4_PORT_POTRD_POT09                      (*((volatile unsigned int*)(0x42A707A4UL)))
-#define bM4_PORT_POTRD_POT10                      (*((volatile unsigned int*)(0x42A707A8UL)))
-#define bM4_PORT_POTRD_POT11                      (*((volatile unsigned int*)(0x42A707ACUL)))
-#define bM4_PORT_POTRD_POT12                      (*((volatile unsigned int*)(0x42A707B0UL)))
-#define bM4_PORT_POTRD_POT13                      (*((volatile unsigned int*)(0x42A707B4UL)))
-#define bM4_PORT_POTRD_POT14                      (*((volatile unsigned int*)(0x42A707B8UL)))
-#define bM4_PORT_POTRD_POT15                      (*((volatile unsigned int*)(0x42A707BCUL)))
-#define bM4_PORT_PIDRE_PIN00                      (*((volatile unsigned int*)(0x42A70800UL)))
-#define bM4_PORT_PIDRE_PIN01                      (*((volatile unsigned int*)(0x42A70804UL)))
-#define bM4_PORT_PIDRE_PIN02                      (*((volatile unsigned int*)(0x42A70808UL)))
-#define bM4_PORT_PIDRE_PIN03                      (*((volatile unsigned int*)(0x42A7080CUL)))
-#define bM4_PORT_PIDRE_PIN04                      (*((volatile unsigned int*)(0x42A70810UL)))
-#define bM4_PORT_PIDRE_PIN05                      (*((volatile unsigned int*)(0x42A70814UL)))
-#define bM4_PORT_PIDRE_PIN06                      (*((volatile unsigned int*)(0x42A70818UL)))
-#define bM4_PORT_PIDRE_PIN07                      (*((volatile unsigned int*)(0x42A7081CUL)))
-#define bM4_PORT_PIDRE_PIN08                      (*((volatile unsigned int*)(0x42A70820UL)))
-#define bM4_PORT_PIDRE_PIN09                      (*((volatile unsigned int*)(0x42A70824UL)))
-#define bM4_PORT_PIDRE_PIN10                      (*((volatile unsigned int*)(0x42A70828UL)))
-#define bM4_PORT_PIDRE_PIN11                      (*((volatile unsigned int*)(0x42A7082CUL)))
-#define bM4_PORT_PIDRE_PIN12                      (*((volatile unsigned int*)(0x42A70830UL)))
-#define bM4_PORT_PIDRE_PIN13                      (*((volatile unsigned int*)(0x42A70834UL)))
-#define bM4_PORT_PIDRE_PIN14                      (*((volatile unsigned int*)(0x42A70838UL)))
-#define bM4_PORT_PIDRE_PIN15                      (*((volatile unsigned int*)(0x42A7083CUL)))
-#define bM4_PORT_PODRE_POUT00                     (*((volatile unsigned int*)(0x42A70880UL)))
-#define bM4_PORT_PODRE_POUT01                     (*((volatile unsigned int*)(0x42A70884UL)))
-#define bM4_PORT_PODRE_POUT02                     (*((volatile unsigned int*)(0x42A70888UL)))
-#define bM4_PORT_PODRE_POUT03                     (*((volatile unsigned int*)(0x42A7088CUL)))
-#define bM4_PORT_PODRE_POUT04                     (*((volatile unsigned int*)(0x42A70890UL)))
-#define bM4_PORT_PODRE_POUT05                     (*((volatile unsigned int*)(0x42A70894UL)))
-#define bM4_PORT_PODRE_POUT06                     (*((volatile unsigned int*)(0x42A70898UL)))
-#define bM4_PORT_PODRE_POUT07                     (*((volatile unsigned int*)(0x42A7089CUL)))
-#define bM4_PORT_PODRE_POUT08                     (*((volatile unsigned int*)(0x42A708A0UL)))
-#define bM4_PORT_PODRE_POUT09                     (*((volatile unsigned int*)(0x42A708A4UL)))
-#define bM4_PORT_PODRE_POUT10                     (*((volatile unsigned int*)(0x42A708A8UL)))
-#define bM4_PORT_PODRE_POUT11                     (*((volatile unsigned int*)(0x42A708ACUL)))
-#define bM4_PORT_PODRE_POUT12                     (*((volatile unsigned int*)(0x42A708B0UL)))
-#define bM4_PORT_PODRE_POUT13                     (*((volatile unsigned int*)(0x42A708B4UL)))
-#define bM4_PORT_PODRE_POUT14                     (*((volatile unsigned int*)(0x42A708B8UL)))
-#define bM4_PORT_PODRE_POUT15                     (*((volatile unsigned int*)(0x42A708BCUL)))
-#define bM4_PORT_POERE_POUTE00                    (*((volatile unsigned int*)(0x42A708C0UL)))
-#define bM4_PORT_POERE_POUTE01                    (*((volatile unsigned int*)(0x42A708C4UL)))
-#define bM4_PORT_POERE_POUTE02                    (*((volatile unsigned int*)(0x42A708C8UL)))
-#define bM4_PORT_POERE_POUTE03                    (*((volatile unsigned int*)(0x42A708CCUL)))
-#define bM4_PORT_POERE_POUTE04                    (*((volatile unsigned int*)(0x42A708D0UL)))
-#define bM4_PORT_POERE_POUTE05                    (*((volatile unsigned int*)(0x42A708D4UL)))
-#define bM4_PORT_POERE_POUTE06                    (*((volatile unsigned int*)(0x42A708D8UL)))
-#define bM4_PORT_POERE_POUTE07                    (*((volatile unsigned int*)(0x42A708DCUL)))
-#define bM4_PORT_POERE_POUTE08                    (*((volatile unsigned int*)(0x42A708E0UL)))
-#define bM4_PORT_POERE_POUTE09                    (*((volatile unsigned int*)(0x42A708E4UL)))
-#define bM4_PORT_POERE_POUTE10                    (*((volatile unsigned int*)(0x42A708E8UL)))
-#define bM4_PORT_POERE_POUTE11                    (*((volatile unsigned int*)(0x42A708ECUL)))
-#define bM4_PORT_POERE_POUTE12                    (*((volatile unsigned int*)(0x42A708F0UL)))
-#define bM4_PORT_POERE_POUTE13                    (*((volatile unsigned int*)(0x42A708F4UL)))
-#define bM4_PORT_POERE_POUTE14                    (*((volatile unsigned int*)(0x42A708F8UL)))
-#define bM4_PORT_POERE_POUTE15                    (*((volatile unsigned int*)(0x42A708FCUL)))
-#define bM4_PORT_POSRE_POS00                      (*((volatile unsigned int*)(0x42A70900UL)))
-#define bM4_PORT_POSRE_POS01                      (*((volatile unsigned int*)(0x42A70904UL)))
-#define bM4_PORT_POSRE_POS02                      (*((volatile unsigned int*)(0x42A70908UL)))
-#define bM4_PORT_POSRE_POS03                      (*((volatile unsigned int*)(0x42A7090CUL)))
-#define bM4_PORT_POSRE_POS04                      (*((volatile unsigned int*)(0x42A70910UL)))
-#define bM4_PORT_POSRE_POS05                      (*((volatile unsigned int*)(0x42A70914UL)))
-#define bM4_PORT_POSRE_POS06                      (*((volatile unsigned int*)(0x42A70918UL)))
-#define bM4_PORT_POSRE_POS07                      (*((volatile unsigned int*)(0x42A7091CUL)))
-#define bM4_PORT_POSRE_POS08                      (*((volatile unsigned int*)(0x42A70920UL)))
-#define bM4_PORT_POSRE_POS09                      (*((volatile unsigned int*)(0x42A70924UL)))
-#define bM4_PORT_POSRE_POS10                      (*((volatile unsigned int*)(0x42A70928UL)))
-#define bM4_PORT_POSRE_POS11                      (*((volatile unsigned int*)(0x42A7092CUL)))
-#define bM4_PORT_POSRE_POS12                      (*((volatile unsigned int*)(0x42A70930UL)))
-#define bM4_PORT_POSRE_POS13                      (*((volatile unsigned int*)(0x42A70934UL)))
-#define bM4_PORT_POSRE_POS14                      (*((volatile unsigned int*)(0x42A70938UL)))
-#define bM4_PORT_POSRE_POS15                      (*((volatile unsigned int*)(0x42A7093CUL)))
-#define bM4_PORT_PORRE_POR00                      (*((volatile unsigned int*)(0x42A70940UL)))
-#define bM4_PORT_PORRE_POR01                      (*((volatile unsigned int*)(0x42A70944UL)))
-#define bM4_PORT_PORRE_POR02                      (*((volatile unsigned int*)(0x42A70948UL)))
-#define bM4_PORT_PORRE_POR03                      (*((volatile unsigned int*)(0x42A7094CUL)))
-#define bM4_PORT_PORRE_POR04                      (*((volatile unsigned int*)(0x42A70950UL)))
-#define bM4_PORT_PORRE_POR05                      (*((volatile unsigned int*)(0x42A70954UL)))
-#define bM4_PORT_PORRE_POR06                      (*((volatile unsigned int*)(0x42A70958UL)))
-#define bM4_PORT_PORRE_POR07                      (*((volatile unsigned int*)(0x42A7095CUL)))
-#define bM4_PORT_PORRE_POR08                      (*((volatile unsigned int*)(0x42A70960UL)))
-#define bM4_PORT_PORRE_POR09                      (*((volatile unsigned int*)(0x42A70964UL)))
-#define bM4_PORT_PORRE_POR10                      (*((volatile unsigned int*)(0x42A70968UL)))
-#define bM4_PORT_PORRE_POR11                      (*((volatile unsigned int*)(0x42A7096CUL)))
-#define bM4_PORT_PORRE_POR12                      (*((volatile unsigned int*)(0x42A70970UL)))
-#define bM4_PORT_PORRE_POR13                      (*((volatile unsigned int*)(0x42A70974UL)))
-#define bM4_PORT_PORRE_POR14                      (*((volatile unsigned int*)(0x42A70978UL)))
-#define bM4_PORT_PORRE_POR15                      (*((volatile unsigned int*)(0x42A7097CUL)))
-#define bM4_PORT_POTRE_POT00                      (*((volatile unsigned int*)(0x42A70980UL)))
-#define bM4_PORT_POTRE_POT01                      (*((volatile unsigned int*)(0x42A70984UL)))
-#define bM4_PORT_POTRE_POT02                      (*((volatile unsigned int*)(0x42A70988UL)))
-#define bM4_PORT_POTRE_POT03                      (*((volatile unsigned int*)(0x42A7098CUL)))
-#define bM4_PORT_POTRE_POT04                      (*((volatile unsigned int*)(0x42A70990UL)))
-#define bM4_PORT_POTRE_POT05                      (*((volatile unsigned int*)(0x42A70994UL)))
-#define bM4_PORT_POTRE_POT06                      (*((volatile unsigned int*)(0x42A70998UL)))
-#define bM4_PORT_POTRE_POT07                      (*((volatile unsigned int*)(0x42A7099CUL)))
-#define bM4_PORT_POTRE_POT08                      (*((volatile unsigned int*)(0x42A709A0UL)))
-#define bM4_PORT_POTRE_POT09                      (*((volatile unsigned int*)(0x42A709A4UL)))
-#define bM4_PORT_POTRE_POT10                      (*((volatile unsigned int*)(0x42A709A8UL)))
-#define bM4_PORT_POTRE_POT11                      (*((volatile unsigned int*)(0x42A709ACUL)))
-#define bM4_PORT_POTRE_POT12                      (*((volatile unsigned int*)(0x42A709B0UL)))
-#define bM4_PORT_POTRE_POT13                      (*((volatile unsigned int*)(0x42A709B4UL)))
-#define bM4_PORT_POTRE_POT14                      (*((volatile unsigned int*)(0x42A709B8UL)))
-#define bM4_PORT_POTRE_POT15                      (*((volatile unsigned int*)(0x42A709BCUL)))
 #define bM4_PORT_PIDRH_PIN00                      (*((volatile unsigned int*)(0x42A70A00UL)))
 #define bM4_PORT_PIDRH_PIN01                      (*((volatile unsigned int*)(0x42A70A04UL)))
 #define bM4_PORT_PIDRH_PIN02                      (*((volatile unsigned int*)(0x42A70A08UL)))
@@ -21130,42 +20654,6 @@ typedef struct
 #define bM4_PORT_PFSRC15_FSEL4                    (*((volatile unsigned int*)(0x42A797D0UL)))
 #define bM4_PORT_PFSRC15_FSEL5                    (*((volatile unsigned int*)(0x42A797D4UL)))
 #define bM4_PORT_PFSRC15_BFE                      (*((volatile unsigned int*)(0x42A797E0UL)))
-#define bM4_PORT_PCRD0_POUT                       (*((volatile unsigned int*)(0x42A79800UL)))
-#define bM4_PORT_PCRD0_POUTE                      (*((volatile unsigned int*)(0x42A79804UL)))
-#define bM4_PORT_PCRD0_NOD                        (*((volatile unsigned int*)(0x42A79808UL)))
-#define bM4_PORT_PCRD0_DRV0                       (*((volatile unsigned int*)(0x42A79810UL)))
-#define bM4_PORT_PCRD0_DRV1                       (*((volatile unsigned int*)(0x42A79814UL)))
-#define bM4_PORT_PCRD0_PUU                        (*((volatile unsigned int*)(0x42A79818UL)))
-#define bM4_PORT_PCRD0_PIN                        (*((volatile unsigned int*)(0x42A79820UL)))
-#define bM4_PORT_PCRD0_INVE                       (*((volatile unsigned int*)(0x42A79824UL)))
-#define bM4_PORT_PCRD0_INTE                       (*((volatile unsigned int*)(0x42A79830UL)))
-#define bM4_PORT_PCRD0_LTE                        (*((volatile unsigned int*)(0x42A79838UL)))
-#define bM4_PORT_PCRD0_DDIS                       (*((volatile unsigned int*)(0x42A7983CUL)))
-#define bM4_PORT_PFSRD0_FSEL0                     (*((volatile unsigned int*)(0x42A79840UL)))
-#define bM4_PORT_PFSRD0_FSEL1                     (*((volatile unsigned int*)(0x42A79844UL)))
-#define bM4_PORT_PFSRD0_FSEL2                     (*((volatile unsigned int*)(0x42A79848UL)))
-#define bM4_PORT_PFSRD0_FSEL3                     (*((volatile unsigned int*)(0x42A7984CUL)))
-#define bM4_PORT_PFSRD0_FSEL4                     (*((volatile unsigned int*)(0x42A79850UL)))
-#define bM4_PORT_PFSRD0_FSEL5                     (*((volatile unsigned int*)(0x42A79854UL)))
-#define bM4_PORT_PFSRD0_BFE                       (*((volatile unsigned int*)(0x42A79860UL)))
-#define bM4_PORT_PCRD1_POUT                       (*((volatile unsigned int*)(0x42A79880UL)))
-#define bM4_PORT_PCRD1_POUTE                      (*((volatile unsigned int*)(0x42A79884UL)))
-#define bM4_PORT_PCRD1_NOD                        (*((volatile unsigned int*)(0x42A79888UL)))
-#define bM4_PORT_PCRD1_DRV0                       (*((volatile unsigned int*)(0x42A79890UL)))
-#define bM4_PORT_PCRD1_DRV1                       (*((volatile unsigned int*)(0x42A79894UL)))
-#define bM4_PORT_PCRD1_PUU                        (*((volatile unsigned int*)(0x42A79898UL)))
-#define bM4_PORT_PCRD1_PIN                        (*((volatile unsigned int*)(0x42A798A0UL)))
-#define bM4_PORT_PCRD1_INVE                       (*((volatile unsigned int*)(0x42A798A4UL)))
-#define bM4_PORT_PCRD1_INTE                       (*((volatile unsigned int*)(0x42A798B0UL)))
-#define bM4_PORT_PCRD1_LTE                        (*((volatile unsigned int*)(0x42A798B8UL)))
-#define bM4_PORT_PCRD1_DDIS                       (*((volatile unsigned int*)(0x42A798BCUL)))
-#define bM4_PORT_PFSRD1_FSEL0                     (*((volatile unsigned int*)(0x42A798C0UL)))
-#define bM4_PORT_PFSRD1_FSEL1                     (*((volatile unsigned int*)(0x42A798C4UL)))
-#define bM4_PORT_PFSRD1_FSEL2                     (*((volatile unsigned int*)(0x42A798C8UL)))
-#define bM4_PORT_PFSRD1_FSEL3                     (*((volatile unsigned int*)(0x42A798CCUL)))
-#define bM4_PORT_PFSRD1_FSEL4                     (*((volatile unsigned int*)(0x42A798D0UL)))
-#define bM4_PORT_PFSRD1_FSEL5                     (*((volatile unsigned int*)(0x42A798D4UL)))
-#define bM4_PORT_PFSRD1_BFE                       (*((volatile unsigned int*)(0x42A798E0UL)))
 #define bM4_PORT_PCRD2_POUT                       (*((volatile unsigned int*)(0x42A79900UL)))
 #define bM4_PORT_PCRD2_POUTE                      (*((volatile unsigned int*)(0x42A79904UL)))
 #define bM4_PORT_PCRD2_NOD                        (*((volatile unsigned int*)(0x42A79908UL)))
@@ -21184,528 +20672,6 @@ typedef struct
 #define bM4_PORT_PFSRD2_FSEL4                     (*((volatile unsigned int*)(0x42A79950UL)))
 #define bM4_PORT_PFSRD2_FSEL5                     (*((volatile unsigned int*)(0x42A79954UL)))
 #define bM4_PORT_PFSRD2_BFE                       (*((volatile unsigned int*)(0x42A79960UL)))
-#define bM4_PORT_PCRD3_POUT                       (*((volatile unsigned int*)(0x42A79980UL)))
-#define bM4_PORT_PCRD3_POUTE                      (*((volatile unsigned int*)(0x42A79984UL)))
-#define bM4_PORT_PCRD3_NOD                        (*((volatile unsigned int*)(0x42A79988UL)))
-#define bM4_PORT_PCRD3_DRV0                       (*((volatile unsigned int*)(0x42A79990UL)))
-#define bM4_PORT_PCRD3_DRV1                       (*((volatile unsigned int*)(0x42A79994UL)))
-#define bM4_PORT_PCRD3_PUU                        (*((volatile unsigned int*)(0x42A79998UL)))
-#define bM4_PORT_PCRD3_PIN                        (*((volatile unsigned int*)(0x42A799A0UL)))
-#define bM4_PORT_PCRD3_INVE                       (*((volatile unsigned int*)(0x42A799A4UL)))
-#define bM4_PORT_PCRD3_INTE                       (*((volatile unsigned int*)(0x42A799B0UL)))
-#define bM4_PORT_PCRD3_LTE                        (*((volatile unsigned int*)(0x42A799B8UL)))
-#define bM4_PORT_PCRD3_DDIS                       (*((volatile unsigned int*)(0x42A799BCUL)))
-#define bM4_PORT_PFSRD3_FSEL0                     (*((volatile unsigned int*)(0x42A799C0UL)))
-#define bM4_PORT_PFSRD3_FSEL1                     (*((volatile unsigned int*)(0x42A799C4UL)))
-#define bM4_PORT_PFSRD3_FSEL2                     (*((volatile unsigned int*)(0x42A799C8UL)))
-#define bM4_PORT_PFSRD3_FSEL3                     (*((volatile unsigned int*)(0x42A799CCUL)))
-#define bM4_PORT_PFSRD3_FSEL4                     (*((volatile unsigned int*)(0x42A799D0UL)))
-#define bM4_PORT_PFSRD3_FSEL5                     (*((volatile unsigned int*)(0x42A799D4UL)))
-#define bM4_PORT_PFSRD3_BFE                       (*((volatile unsigned int*)(0x42A799E0UL)))
-#define bM4_PORT_PCRD4_POUT                       (*((volatile unsigned int*)(0x42A79A00UL)))
-#define bM4_PORT_PCRD4_POUTE                      (*((volatile unsigned int*)(0x42A79A04UL)))
-#define bM4_PORT_PCRD4_NOD                        (*((volatile unsigned int*)(0x42A79A08UL)))
-#define bM4_PORT_PCRD4_DRV0                       (*((volatile unsigned int*)(0x42A79A10UL)))
-#define bM4_PORT_PCRD4_DRV1                       (*((volatile unsigned int*)(0x42A79A14UL)))
-#define bM4_PORT_PCRD4_PUU                        (*((volatile unsigned int*)(0x42A79A18UL)))
-#define bM4_PORT_PCRD4_PIN                        (*((volatile unsigned int*)(0x42A79A20UL)))
-#define bM4_PORT_PCRD4_INVE                       (*((volatile unsigned int*)(0x42A79A24UL)))
-#define bM4_PORT_PCRD4_INTE                       (*((volatile unsigned int*)(0x42A79A30UL)))
-#define bM4_PORT_PCRD4_LTE                        (*((volatile unsigned int*)(0x42A79A38UL)))
-#define bM4_PORT_PCRD4_DDIS                       (*((volatile unsigned int*)(0x42A79A3CUL)))
-#define bM4_PORT_PFSRD4_FSEL0                     (*((volatile unsigned int*)(0x42A79A40UL)))
-#define bM4_PORT_PFSRD4_FSEL1                     (*((volatile unsigned int*)(0x42A79A44UL)))
-#define bM4_PORT_PFSRD4_FSEL2                     (*((volatile unsigned int*)(0x42A79A48UL)))
-#define bM4_PORT_PFSRD4_FSEL3                     (*((volatile unsigned int*)(0x42A79A4CUL)))
-#define bM4_PORT_PFSRD4_FSEL4                     (*((volatile unsigned int*)(0x42A79A50UL)))
-#define bM4_PORT_PFSRD4_FSEL5                     (*((volatile unsigned int*)(0x42A79A54UL)))
-#define bM4_PORT_PFSRD4_BFE                       (*((volatile unsigned int*)(0x42A79A60UL)))
-#define bM4_PORT_PCRD5_POUT                       (*((volatile unsigned int*)(0x42A79A80UL)))
-#define bM4_PORT_PCRD5_POUTE                      (*((volatile unsigned int*)(0x42A79A84UL)))
-#define bM4_PORT_PCRD5_NOD                        (*((volatile unsigned int*)(0x42A79A88UL)))
-#define bM4_PORT_PCRD5_DRV0                       (*((volatile unsigned int*)(0x42A79A90UL)))
-#define bM4_PORT_PCRD5_DRV1                       (*((volatile unsigned int*)(0x42A79A94UL)))
-#define bM4_PORT_PCRD5_PUU                        (*((volatile unsigned int*)(0x42A79A98UL)))
-#define bM4_PORT_PCRD5_PIN                        (*((volatile unsigned int*)(0x42A79AA0UL)))
-#define bM4_PORT_PCRD5_INVE                       (*((volatile unsigned int*)(0x42A79AA4UL)))
-#define bM4_PORT_PCRD5_INTE                       (*((volatile unsigned int*)(0x42A79AB0UL)))
-#define bM4_PORT_PCRD5_LTE                        (*((volatile unsigned int*)(0x42A79AB8UL)))
-#define bM4_PORT_PCRD5_DDIS                       (*((volatile unsigned int*)(0x42A79ABCUL)))
-#define bM4_PORT_PFSRD5_FSEL0                     (*((volatile unsigned int*)(0x42A79AC0UL)))
-#define bM4_PORT_PFSRD5_FSEL1                     (*((volatile unsigned int*)(0x42A79AC4UL)))
-#define bM4_PORT_PFSRD5_FSEL2                     (*((volatile unsigned int*)(0x42A79AC8UL)))
-#define bM4_PORT_PFSRD5_FSEL3                     (*((volatile unsigned int*)(0x42A79ACCUL)))
-#define bM4_PORT_PFSRD5_FSEL4                     (*((volatile unsigned int*)(0x42A79AD0UL)))
-#define bM4_PORT_PFSRD5_FSEL5                     (*((volatile unsigned int*)(0x42A79AD4UL)))
-#define bM4_PORT_PFSRD5_BFE                       (*((volatile unsigned int*)(0x42A79AE0UL)))
-#define bM4_PORT_PCRD6_POUT                       (*((volatile unsigned int*)(0x42A79B00UL)))
-#define bM4_PORT_PCRD6_POUTE                      (*((volatile unsigned int*)(0x42A79B04UL)))
-#define bM4_PORT_PCRD6_NOD                        (*((volatile unsigned int*)(0x42A79B08UL)))
-#define bM4_PORT_PCRD6_DRV0                       (*((volatile unsigned int*)(0x42A79B10UL)))
-#define bM4_PORT_PCRD6_DRV1                       (*((volatile unsigned int*)(0x42A79B14UL)))
-#define bM4_PORT_PCRD6_PUU                        (*((volatile unsigned int*)(0x42A79B18UL)))
-#define bM4_PORT_PCRD6_PIN                        (*((volatile unsigned int*)(0x42A79B20UL)))
-#define bM4_PORT_PCRD6_INVE                       (*((volatile unsigned int*)(0x42A79B24UL)))
-#define bM4_PORT_PCRD6_INTE                       (*((volatile unsigned int*)(0x42A79B30UL)))
-#define bM4_PORT_PCRD6_LTE                        (*((volatile unsigned int*)(0x42A79B38UL)))
-#define bM4_PORT_PCRD6_DDIS                       (*((volatile unsigned int*)(0x42A79B3CUL)))
-#define bM4_PORT_PFSRD6_FSEL0                     (*((volatile unsigned int*)(0x42A79B40UL)))
-#define bM4_PORT_PFSRD6_FSEL1                     (*((volatile unsigned int*)(0x42A79B44UL)))
-#define bM4_PORT_PFSRD6_FSEL2                     (*((volatile unsigned int*)(0x42A79B48UL)))
-#define bM4_PORT_PFSRD6_FSEL3                     (*((volatile unsigned int*)(0x42A79B4CUL)))
-#define bM4_PORT_PFSRD6_FSEL4                     (*((volatile unsigned int*)(0x42A79B50UL)))
-#define bM4_PORT_PFSRD6_FSEL5                     (*((volatile unsigned int*)(0x42A79B54UL)))
-#define bM4_PORT_PFSRD6_BFE                       (*((volatile unsigned int*)(0x42A79B60UL)))
-#define bM4_PORT_PCRD7_POUT                       (*((volatile unsigned int*)(0x42A79B80UL)))
-#define bM4_PORT_PCRD7_POUTE                      (*((volatile unsigned int*)(0x42A79B84UL)))
-#define bM4_PORT_PCRD7_NOD                        (*((volatile unsigned int*)(0x42A79B88UL)))
-#define bM4_PORT_PCRD7_DRV0                       (*((volatile unsigned int*)(0x42A79B90UL)))
-#define bM4_PORT_PCRD7_DRV1                       (*((volatile unsigned int*)(0x42A79B94UL)))
-#define bM4_PORT_PCRD7_PUU                        (*((volatile unsigned int*)(0x42A79B98UL)))
-#define bM4_PORT_PCRD7_PIN                        (*((volatile unsigned int*)(0x42A79BA0UL)))
-#define bM4_PORT_PCRD7_INVE                       (*((volatile unsigned int*)(0x42A79BA4UL)))
-#define bM4_PORT_PCRD7_INTE                       (*((volatile unsigned int*)(0x42A79BB0UL)))
-#define bM4_PORT_PCRD7_LTE                        (*((volatile unsigned int*)(0x42A79BB8UL)))
-#define bM4_PORT_PCRD7_DDIS                       (*((volatile unsigned int*)(0x42A79BBCUL)))
-#define bM4_PORT_PFSRD7_FSEL0                     (*((volatile unsigned int*)(0x42A79BC0UL)))
-#define bM4_PORT_PFSRD7_FSEL1                     (*((volatile unsigned int*)(0x42A79BC4UL)))
-#define bM4_PORT_PFSRD7_FSEL2                     (*((volatile unsigned int*)(0x42A79BC8UL)))
-#define bM4_PORT_PFSRD7_FSEL3                     (*((volatile unsigned int*)(0x42A79BCCUL)))
-#define bM4_PORT_PFSRD7_FSEL4                     (*((volatile unsigned int*)(0x42A79BD0UL)))
-#define bM4_PORT_PFSRD7_FSEL5                     (*((volatile unsigned int*)(0x42A79BD4UL)))
-#define bM4_PORT_PFSRD7_BFE                       (*((volatile unsigned int*)(0x42A79BE0UL)))
-#define bM4_PORT_PCRD8_POUT                       (*((volatile unsigned int*)(0x42A79C00UL)))
-#define bM4_PORT_PCRD8_POUTE                      (*((volatile unsigned int*)(0x42A79C04UL)))
-#define bM4_PORT_PCRD8_NOD                        (*((volatile unsigned int*)(0x42A79C08UL)))
-#define bM4_PORT_PCRD8_DRV0                       (*((volatile unsigned int*)(0x42A79C10UL)))
-#define bM4_PORT_PCRD8_DRV1                       (*((volatile unsigned int*)(0x42A79C14UL)))
-#define bM4_PORT_PCRD8_PUU                        (*((volatile unsigned int*)(0x42A79C18UL)))
-#define bM4_PORT_PCRD8_PIN                        (*((volatile unsigned int*)(0x42A79C20UL)))
-#define bM4_PORT_PCRD8_INVE                       (*((volatile unsigned int*)(0x42A79C24UL)))
-#define bM4_PORT_PCRD8_INTE                       (*((volatile unsigned int*)(0x42A79C30UL)))
-#define bM4_PORT_PCRD8_LTE                        (*((volatile unsigned int*)(0x42A79C38UL)))
-#define bM4_PORT_PCRD8_DDIS                       (*((volatile unsigned int*)(0x42A79C3CUL)))
-#define bM4_PORT_PFSRD8_FSEL0                     (*((volatile unsigned int*)(0x42A79C40UL)))
-#define bM4_PORT_PFSRD8_FSEL1                     (*((volatile unsigned int*)(0x42A79C44UL)))
-#define bM4_PORT_PFSRD8_FSEL2                     (*((volatile unsigned int*)(0x42A79C48UL)))
-#define bM4_PORT_PFSRD8_FSEL3                     (*((volatile unsigned int*)(0x42A79C4CUL)))
-#define bM4_PORT_PFSRD8_FSEL4                     (*((volatile unsigned int*)(0x42A79C50UL)))
-#define bM4_PORT_PFSRD8_FSEL5                     (*((volatile unsigned int*)(0x42A79C54UL)))
-#define bM4_PORT_PFSRD8_BFE                       (*((volatile unsigned int*)(0x42A79C60UL)))
-#define bM4_PORT_PCRD9_POUT                       (*((volatile unsigned int*)(0x42A79C80UL)))
-#define bM4_PORT_PCRD9_POUTE                      (*((volatile unsigned int*)(0x42A79C84UL)))
-#define bM4_PORT_PCRD9_NOD                        (*((volatile unsigned int*)(0x42A79C88UL)))
-#define bM4_PORT_PCRD9_DRV0                       (*((volatile unsigned int*)(0x42A79C90UL)))
-#define bM4_PORT_PCRD9_DRV1                       (*((volatile unsigned int*)(0x42A79C94UL)))
-#define bM4_PORT_PCRD9_PUU                        (*((volatile unsigned int*)(0x42A79C98UL)))
-#define bM4_PORT_PCRD9_PIN                        (*((volatile unsigned int*)(0x42A79CA0UL)))
-#define bM4_PORT_PCRD9_INVE                       (*((volatile unsigned int*)(0x42A79CA4UL)))
-#define bM4_PORT_PCRD9_INTE                       (*((volatile unsigned int*)(0x42A79CB0UL)))
-#define bM4_PORT_PCRD9_LTE                        (*((volatile unsigned int*)(0x42A79CB8UL)))
-#define bM4_PORT_PCRD9_DDIS                       (*((volatile unsigned int*)(0x42A79CBCUL)))
-#define bM4_PORT_PFSRD9_FSEL0                     (*((volatile unsigned int*)(0x42A79CC0UL)))
-#define bM4_PORT_PFSRD9_FSEL1                     (*((volatile unsigned int*)(0x42A79CC4UL)))
-#define bM4_PORT_PFSRD9_FSEL2                     (*((volatile unsigned int*)(0x42A79CC8UL)))
-#define bM4_PORT_PFSRD9_FSEL3                     (*((volatile unsigned int*)(0x42A79CCCUL)))
-#define bM4_PORT_PFSRD9_FSEL4                     (*((volatile unsigned int*)(0x42A79CD0UL)))
-#define bM4_PORT_PFSRD9_FSEL5                     (*((volatile unsigned int*)(0x42A79CD4UL)))
-#define bM4_PORT_PFSRD9_BFE                       (*((volatile unsigned int*)(0x42A79CE0UL)))
-#define bM4_PORT_PCRD10_POUT                      (*((volatile unsigned int*)(0x42A79D00UL)))
-#define bM4_PORT_PCRD10_POUTE                     (*((volatile unsigned int*)(0x42A79D04UL)))
-#define bM4_PORT_PCRD10_NOD                       (*((volatile unsigned int*)(0x42A79D08UL)))
-#define bM4_PORT_PCRD10_DRV0                      (*((volatile unsigned int*)(0x42A79D10UL)))
-#define bM4_PORT_PCRD10_DRV1                      (*((volatile unsigned int*)(0x42A79D14UL)))
-#define bM4_PORT_PCRD10_PUU                       (*((volatile unsigned int*)(0x42A79D18UL)))
-#define bM4_PORT_PCRD10_PIN                       (*((volatile unsigned int*)(0x42A79D20UL)))
-#define bM4_PORT_PCRD10_INVE                      (*((volatile unsigned int*)(0x42A79D24UL)))
-#define bM4_PORT_PCRD10_INTE                      (*((volatile unsigned int*)(0x42A79D30UL)))
-#define bM4_PORT_PCRD10_LTE                       (*((volatile unsigned int*)(0x42A79D38UL)))
-#define bM4_PORT_PCRD10_DDIS                      (*((volatile unsigned int*)(0x42A79D3CUL)))
-#define bM4_PORT_PFSRD10_FSEL0                    (*((volatile unsigned int*)(0x42A79D40UL)))
-#define bM4_PORT_PFSRD10_FSEL1                    (*((volatile unsigned int*)(0x42A79D44UL)))
-#define bM4_PORT_PFSRD10_FSEL2                    (*((volatile unsigned int*)(0x42A79D48UL)))
-#define bM4_PORT_PFSRD10_FSEL3                    (*((volatile unsigned int*)(0x42A79D4CUL)))
-#define bM4_PORT_PFSRD10_FSEL4                    (*((volatile unsigned int*)(0x42A79D50UL)))
-#define bM4_PORT_PFSRD10_FSEL5                    (*((volatile unsigned int*)(0x42A79D54UL)))
-#define bM4_PORT_PFSRD10_BFE                      (*((volatile unsigned int*)(0x42A79D60UL)))
-#define bM4_PORT_PCRD11_POUT                      (*((volatile unsigned int*)(0x42A79D80UL)))
-#define bM4_PORT_PCRD11_POUTE                     (*((volatile unsigned int*)(0x42A79D84UL)))
-#define bM4_PORT_PCRD11_NOD                       (*((volatile unsigned int*)(0x42A79D88UL)))
-#define bM4_PORT_PCRD11_DRV0                      (*((volatile unsigned int*)(0x42A79D90UL)))
-#define bM4_PORT_PCRD11_DRV1                      (*((volatile unsigned int*)(0x42A79D94UL)))
-#define bM4_PORT_PCRD11_PUU                       (*((volatile unsigned int*)(0x42A79D98UL)))
-#define bM4_PORT_PCRD11_PIN                       (*((volatile unsigned int*)(0x42A79DA0UL)))
-#define bM4_PORT_PCRD11_INVE                      (*((volatile unsigned int*)(0x42A79DA4UL)))
-#define bM4_PORT_PCRD11_INTE                      (*((volatile unsigned int*)(0x42A79DB0UL)))
-#define bM4_PORT_PCRD11_LTE                       (*((volatile unsigned int*)(0x42A79DB8UL)))
-#define bM4_PORT_PCRD11_DDIS                      (*((volatile unsigned int*)(0x42A79DBCUL)))
-#define bM4_PORT_PFSRD11_FSEL0                    (*((volatile unsigned int*)(0x42A79DC0UL)))
-#define bM4_PORT_PFSRD11_FSEL1                    (*((volatile unsigned int*)(0x42A79DC4UL)))
-#define bM4_PORT_PFSRD11_FSEL2                    (*((volatile unsigned int*)(0x42A79DC8UL)))
-#define bM4_PORT_PFSRD11_FSEL3                    (*((volatile unsigned int*)(0x42A79DCCUL)))
-#define bM4_PORT_PFSRD11_FSEL4                    (*((volatile unsigned int*)(0x42A79DD0UL)))
-#define bM4_PORT_PFSRD11_FSEL5                    (*((volatile unsigned int*)(0x42A79DD4UL)))
-#define bM4_PORT_PFSRD11_BFE                      (*((volatile unsigned int*)(0x42A79DE0UL)))
-#define bM4_PORT_PCRD12_POUT                      (*((volatile unsigned int*)(0x42A79E00UL)))
-#define bM4_PORT_PCRD12_POUTE                     (*((volatile unsigned int*)(0x42A79E04UL)))
-#define bM4_PORT_PCRD12_NOD                       (*((volatile unsigned int*)(0x42A79E08UL)))
-#define bM4_PORT_PCRD12_DRV0                      (*((volatile unsigned int*)(0x42A79E10UL)))
-#define bM4_PORT_PCRD12_DRV1                      (*((volatile unsigned int*)(0x42A79E14UL)))
-#define bM4_PORT_PCRD12_PUU                       (*((volatile unsigned int*)(0x42A79E18UL)))
-#define bM4_PORT_PCRD12_PIN                       (*((volatile unsigned int*)(0x42A79E20UL)))
-#define bM4_PORT_PCRD12_INVE                      (*((volatile unsigned int*)(0x42A79E24UL)))
-#define bM4_PORT_PCRD12_INTE                      (*((volatile unsigned int*)(0x42A79E30UL)))
-#define bM4_PORT_PCRD12_LTE                       (*((volatile unsigned int*)(0x42A79E38UL)))
-#define bM4_PORT_PCRD12_DDIS                      (*((volatile unsigned int*)(0x42A79E3CUL)))
-#define bM4_PORT_PFSRD12_FSEL0                    (*((volatile unsigned int*)(0x42A79E40UL)))
-#define bM4_PORT_PFSRD12_FSEL1                    (*((volatile unsigned int*)(0x42A79E44UL)))
-#define bM4_PORT_PFSRD12_FSEL2                    (*((volatile unsigned int*)(0x42A79E48UL)))
-#define bM4_PORT_PFSRD12_FSEL3                    (*((volatile unsigned int*)(0x42A79E4CUL)))
-#define bM4_PORT_PFSRD12_FSEL4                    (*((volatile unsigned int*)(0x42A79E50UL)))
-#define bM4_PORT_PFSRD12_FSEL5                    (*((volatile unsigned int*)(0x42A79E54UL)))
-#define bM4_PORT_PFSRD12_BFE                      (*((volatile unsigned int*)(0x42A79E60UL)))
-#define bM4_PORT_PCRD13_POUT                      (*((volatile unsigned int*)(0x42A79E80UL)))
-#define bM4_PORT_PCRD13_POUTE                     (*((volatile unsigned int*)(0x42A79E84UL)))
-#define bM4_PORT_PCRD13_NOD                       (*((volatile unsigned int*)(0x42A79E88UL)))
-#define bM4_PORT_PCRD13_DRV0                      (*((volatile unsigned int*)(0x42A79E90UL)))
-#define bM4_PORT_PCRD13_DRV1                      (*((volatile unsigned int*)(0x42A79E94UL)))
-#define bM4_PORT_PCRD13_PUU                       (*((volatile unsigned int*)(0x42A79E98UL)))
-#define bM4_PORT_PCRD13_PIN                       (*((volatile unsigned int*)(0x42A79EA0UL)))
-#define bM4_PORT_PCRD13_INVE                      (*((volatile unsigned int*)(0x42A79EA4UL)))
-#define bM4_PORT_PCRD13_INTE                      (*((volatile unsigned int*)(0x42A79EB0UL)))
-#define bM4_PORT_PCRD13_LTE                       (*((volatile unsigned int*)(0x42A79EB8UL)))
-#define bM4_PORT_PCRD13_DDIS                      (*((volatile unsigned int*)(0x42A79EBCUL)))
-#define bM4_PORT_PFSRD13_FSEL0                    (*((volatile unsigned int*)(0x42A79EC0UL)))
-#define bM4_PORT_PFSRD13_FSEL1                    (*((volatile unsigned int*)(0x42A79EC4UL)))
-#define bM4_PORT_PFSRD13_FSEL2                    (*((volatile unsigned int*)(0x42A79EC8UL)))
-#define bM4_PORT_PFSRD13_FSEL3                    (*((volatile unsigned int*)(0x42A79ECCUL)))
-#define bM4_PORT_PFSRD13_FSEL4                    (*((volatile unsigned int*)(0x42A79ED0UL)))
-#define bM4_PORT_PFSRD13_FSEL5                    (*((volatile unsigned int*)(0x42A79ED4UL)))
-#define bM4_PORT_PFSRD13_BFE                      (*((volatile unsigned int*)(0x42A79EE0UL)))
-#define bM4_PORT_PCRD14_POUT                      (*((volatile unsigned int*)(0x42A79F00UL)))
-#define bM4_PORT_PCRD14_POUTE                     (*((volatile unsigned int*)(0x42A79F04UL)))
-#define bM4_PORT_PCRD14_NOD                       (*((volatile unsigned int*)(0x42A79F08UL)))
-#define bM4_PORT_PCRD14_DRV0                      (*((volatile unsigned int*)(0x42A79F10UL)))
-#define bM4_PORT_PCRD14_DRV1                      (*((volatile unsigned int*)(0x42A79F14UL)))
-#define bM4_PORT_PCRD14_PUU                       (*((volatile unsigned int*)(0x42A79F18UL)))
-#define bM4_PORT_PCRD14_PIN                       (*((volatile unsigned int*)(0x42A79F20UL)))
-#define bM4_PORT_PCRD14_INVE                      (*((volatile unsigned int*)(0x42A79F24UL)))
-#define bM4_PORT_PCRD14_INTE                      (*((volatile unsigned int*)(0x42A79F30UL)))
-#define bM4_PORT_PCRD14_LTE                       (*((volatile unsigned int*)(0x42A79F38UL)))
-#define bM4_PORT_PCRD14_DDIS                      (*((volatile unsigned int*)(0x42A79F3CUL)))
-#define bM4_PORT_PFSRD14_FSEL0                    (*((volatile unsigned int*)(0x42A79F40UL)))
-#define bM4_PORT_PFSRD14_FSEL1                    (*((volatile unsigned int*)(0x42A79F44UL)))
-#define bM4_PORT_PFSRD14_FSEL2                    (*((volatile unsigned int*)(0x42A79F48UL)))
-#define bM4_PORT_PFSRD14_FSEL3                    (*((volatile unsigned int*)(0x42A79F4CUL)))
-#define bM4_PORT_PFSRD14_FSEL4                    (*((volatile unsigned int*)(0x42A79F50UL)))
-#define bM4_PORT_PFSRD14_FSEL5                    (*((volatile unsigned int*)(0x42A79F54UL)))
-#define bM4_PORT_PFSRD14_BFE                      (*((volatile unsigned int*)(0x42A79F60UL)))
-#define bM4_PORT_PCRD15_POUT                      (*((volatile unsigned int*)(0x42A79F80UL)))
-#define bM4_PORT_PCRD15_POUTE                     (*((volatile unsigned int*)(0x42A79F84UL)))
-#define bM4_PORT_PCRD15_NOD                       (*((volatile unsigned int*)(0x42A79F88UL)))
-#define bM4_PORT_PCRD15_DRV0                      (*((volatile unsigned int*)(0x42A79F90UL)))
-#define bM4_PORT_PCRD15_DRV1                      (*((volatile unsigned int*)(0x42A79F94UL)))
-#define bM4_PORT_PCRD15_PUU                       (*((volatile unsigned int*)(0x42A79F98UL)))
-#define bM4_PORT_PCRD15_PIN                       (*((volatile unsigned int*)(0x42A79FA0UL)))
-#define bM4_PORT_PCRD15_INVE                      (*((volatile unsigned int*)(0x42A79FA4UL)))
-#define bM4_PORT_PCRD15_INTE                      (*((volatile unsigned int*)(0x42A79FB0UL)))
-#define bM4_PORT_PCRD15_LTE                       (*((volatile unsigned int*)(0x42A79FB8UL)))
-#define bM4_PORT_PCRD15_DDIS                      (*((volatile unsigned int*)(0x42A79FBCUL)))
-#define bM4_PORT_PFSRD15_FSEL0                    (*((volatile unsigned int*)(0x42A79FC0UL)))
-#define bM4_PORT_PFSRD15_FSEL1                    (*((volatile unsigned int*)(0x42A79FC4UL)))
-#define bM4_PORT_PFSRD15_FSEL2                    (*((volatile unsigned int*)(0x42A79FC8UL)))
-#define bM4_PORT_PFSRD15_FSEL3                    (*((volatile unsigned int*)(0x42A79FCCUL)))
-#define bM4_PORT_PFSRD15_FSEL4                    (*((volatile unsigned int*)(0x42A79FD0UL)))
-#define bM4_PORT_PFSRD15_FSEL5                    (*((volatile unsigned int*)(0x42A79FD4UL)))
-#define bM4_PORT_PFSRD15_BFE                      (*((volatile unsigned int*)(0x42A79FE0UL)))
-#define bM4_PORT_PCRE0_POUT                       (*((volatile unsigned int*)(0x42A7A000UL)))
-#define bM4_PORT_PCRE0_POUTE                      (*((volatile unsigned int*)(0x42A7A004UL)))
-#define bM4_PORT_PCRE0_NOD                        (*((volatile unsigned int*)(0x42A7A008UL)))
-#define bM4_PORT_PCRE0_DRV0                       (*((volatile unsigned int*)(0x42A7A010UL)))
-#define bM4_PORT_PCRE0_DRV1                       (*((volatile unsigned int*)(0x42A7A014UL)))
-#define bM4_PORT_PCRE0_PUU                        (*((volatile unsigned int*)(0x42A7A018UL)))
-#define bM4_PORT_PCRE0_PIN                        (*((volatile unsigned int*)(0x42A7A020UL)))
-#define bM4_PORT_PCRE0_INVE                       (*((volatile unsigned int*)(0x42A7A024UL)))
-#define bM4_PORT_PCRE0_INTE                       (*((volatile unsigned int*)(0x42A7A030UL)))
-#define bM4_PORT_PCRE0_LTE                        (*((volatile unsigned int*)(0x42A7A038UL)))
-#define bM4_PORT_PCRE0_DDIS                       (*((volatile unsigned int*)(0x42A7A03CUL)))
-#define bM4_PORT_PFSRE0_FSEL0                     (*((volatile unsigned int*)(0x42A7A040UL)))
-#define bM4_PORT_PFSRE0_FSEL1                     (*((volatile unsigned int*)(0x42A7A044UL)))
-#define bM4_PORT_PFSRE0_FSEL2                     (*((volatile unsigned int*)(0x42A7A048UL)))
-#define bM4_PORT_PFSRE0_FSEL3                     (*((volatile unsigned int*)(0x42A7A04CUL)))
-#define bM4_PORT_PFSRE0_FSEL4                     (*((volatile unsigned int*)(0x42A7A050UL)))
-#define bM4_PORT_PFSRE0_FSEL5                     (*((volatile unsigned int*)(0x42A7A054UL)))
-#define bM4_PORT_PFSRE0_BFE                       (*((volatile unsigned int*)(0x42A7A060UL)))
-#define bM4_PORT_PCRE1_POUT                       (*((volatile unsigned int*)(0x42A7A080UL)))
-#define bM4_PORT_PCRE1_POUTE                      (*((volatile unsigned int*)(0x42A7A084UL)))
-#define bM4_PORT_PCRE1_NOD                        (*((volatile unsigned int*)(0x42A7A088UL)))
-#define bM4_PORT_PCRE1_DRV0                       (*((volatile unsigned int*)(0x42A7A090UL)))
-#define bM4_PORT_PCRE1_DRV1                       (*((volatile unsigned int*)(0x42A7A094UL)))
-#define bM4_PORT_PCRE1_PUU                        (*((volatile unsigned int*)(0x42A7A098UL)))
-#define bM4_PORT_PCRE1_PIN                        (*((volatile unsigned int*)(0x42A7A0A0UL)))
-#define bM4_PORT_PCRE1_INVE                       (*((volatile unsigned int*)(0x42A7A0A4UL)))
-#define bM4_PORT_PCRE1_INTE                       (*((volatile unsigned int*)(0x42A7A0B0UL)))
-#define bM4_PORT_PCRE1_LTE                        (*((volatile unsigned int*)(0x42A7A0B8UL)))
-#define bM4_PORT_PCRE1_DDIS                       (*((volatile unsigned int*)(0x42A7A0BCUL)))
-#define bM4_PORT_PFSRE1_FSEL0                     (*((volatile unsigned int*)(0x42A7A0C0UL)))
-#define bM4_PORT_PFSRE1_FSEL1                     (*((volatile unsigned int*)(0x42A7A0C4UL)))
-#define bM4_PORT_PFSRE1_FSEL2                     (*((volatile unsigned int*)(0x42A7A0C8UL)))
-#define bM4_PORT_PFSRE1_FSEL3                     (*((volatile unsigned int*)(0x42A7A0CCUL)))
-#define bM4_PORT_PFSRE1_FSEL4                     (*((volatile unsigned int*)(0x42A7A0D0UL)))
-#define bM4_PORT_PFSRE1_FSEL5                     (*((volatile unsigned int*)(0x42A7A0D4UL)))
-#define bM4_PORT_PFSRE1_BFE                       (*((volatile unsigned int*)(0x42A7A0E0UL)))
-#define bM4_PORT_PCRE2_POUT                       (*((volatile unsigned int*)(0x42A7A100UL)))
-#define bM4_PORT_PCRE2_POUTE                      (*((volatile unsigned int*)(0x42A7A104UL)))
-#define bM4_PORT_PCRE2_NOD                        (*((volatile unsigned int*)(0x42A7A108UL)))
-#define bM4_PORT_PCRE2_DRV0                       (*((volatile unsigned int*)(0x42A7A110UL)))
-#define bM4_PORT_PCRE2_DRV1                       (*((volatile unsigned int*)(0x42A7A114UL)))
-#define bM4_PORT_PCRE2_PUU                        (*((volatile unsigned int*)(0x42A7A118UL)))
-#define bM4_PORT_PCRE2_PIN                        (*((volatile unsigned int*)(0x42A7A120UL)))
-#define bM4_PORT_PCRE2_INVE                       (*((volatile unsigned int*)(0x42A7A124UL)))
-#define bM4_PORT_PCRE2_INTE                       (*((volatile unsigned int*)(0x42A7A130UL)))
-#define bM4_PORT_PCRE2_LTE                        (*((volatile unsigned int*)(0x42A7A138UL)))
-#define bM4_PORT_PCRE2_DDIS                       (*((volatile unsigned int*)(0x42A7A13CUL)))
-#define bM4_PORT_PFSRE2_FSEL0                     (*((volatile unsigned int*)(0x42A7A140UL)))
-#define bM4_PORT_PFSRE2_FSEL1                     (*((volatile unsigned int*)(0x42A7A144UL)))
-#define bM4_PORT_PFSRE2_FSEL2                     (*((volatile unsigned int*)(0x42A7A148UL)))
-#define bM4_PORT_PFSRE2_FSEL3                     (*((volatile unsigned int*)(0x42A7A14CUL)))
-#define bM4_PORT_PFSRE2_FSEL4                     (*((volatile unsigned int*)(0x42A7A150UL)))
-#define bM4_PORT_PFSRE2_FSEL5                     (*((volatile unsigned int*)(0x42A7A154UL)))
-#define bM4_PORT_PFSRE2_BFE                       (*((volatile unsigned int*)(0x42A7A160UL)))
-#define bM4_PORT_PCRE3_POUT                       (*((volatile unsigned int*)(0x42A7A180UL)))
-#define bM4_PORT_PCRE3_POUTE                      (*((volatile unsigned int*)(0x42A7A184UL)))
-#define bM4_PORT_PCRE3_NOD                        (*((volatile unsigned int*)(0x42A7A188UL)))
-#define bM4_PORT_PCRE3_DRV0                       (*((volatile unsigned int*)(0x42A7A190UL)))
-#define bM4_PORT_PCRE3_DRV1                       (*((volatile unsigned int*)(0x42A7A194UL)))
-#define bM4_PORT_PCRE3_PUU                        (*((volatile unsigned int*)(0x42A7A198UL)))
-#define bM4_PORT_PCRE3_PIN                        (*((volatile unsigned int*)(0x42A7A1A0UL)))
-#define bM4_PORT_PCRE3_INVE                       (*((volatile unsigned int*)(0x42A7A1A4UL)))
-#define bM4_PORT_PCRE3_INTE                       (*((volatile unsigned int*)(0x42A7A1B0UL)))
-#define bM4_PORT_PCRE3_LTE                        (*((volatile unsigned int*)(0x42A7A1B8UL)))
-#define bM4_PORT_PCRE3_DDIS                       (*((volatile unsigned int*)(0x42A7A1BCUL)))
-#define bM4_PORT_PFSRE3_FSEL0                     (*((volatile unsigned int*)(0x42A7A1C0UL)))
-#define bM4_PORT_PFSRE3_FSEL1                     (*((volatile unsigned int*)(0x42A7A1C4UL)))
-#define bM4_PORT_PFSRE3_FSEL2                     (*((volatile unsigned int*)(0x42A7A1C8UL)))
-#define bM4_PORT_PFSRE3_FSEL3                     (*((volatile unsigned int*)(0x42A7A1CCUL)))
-#define bM4_PORT_PFSRE3_FSEL4                     (*((volatile unsigned int*)(0x42A7A1D0UL)))
-#define bM4_PORT_PFSRE3_FSEL5                     (*((volatile unsigned int*)(0x42A7A1D4UL)))
-#define bM4_PORT_PFSRE3_BFE                       (*((volatile unsigned int*)(0x42A7A1E0UL)))
-#define bM4_PORT_PCRE4_POUT                       (*((volatile unsigned int*)(0x42A7A200UL)))
-#define bM4_PORT_PCRE4_POUTE                      (*((volatile unsigned int*)(0x42A7A204UL)))
-#define bM4_PORT_PCRE4_NOD                        (*((volatile unsigned int*)(0x42A7A208UL)))
-#define bM4_PORT_PCRE4_DRV0                       (*((volatile unsigned int*)(0x42A7A210UL)))
-#define bM4_PORT_PCRE4_DRV1                       (*((volatile unsigned int*)(0x42A7A214UL)))
-#define bM4_PORT_PCRE4_PUU                        (*((volatile unsigned int*)(0x42A7A218UL)))
-#define bM4_PORT_PCRE4_PIN                        (*((volatile unsigned int*)(0x42A7A220UL)))
-#define bM4_PORT_PCRE4_INVE                       (*((volatile unsigned int*)(0x42A7A224UL)))
-#define bM4_PORT_PCRE4_INTE                       (*((volatile unsigned int*)(0x42A7A230UL)))
-#define bM4_PORT_PCRE4_LTE                        (*((volatile unsigned int*)(0x42A7A238UL)))
-#define bM4_PORT_PCRE4_DDIS                       (*((volatile unsigned int*)(0x42A7A23CUL)))
-#define bM4_PORT_PFSRE4_FSEL0                     (*((volatile unsigned int*)(0x42A7A240UL)))
-#define bM4_PORT_PFSRE4_FSEL1                     (*((volatile unsigned int*)(0x42A7A244UL)))
-#define bM4_PORT_PFSRE4_FSEL2                     (*((volatile unsigned int*)(0x42A7A248UL)))
-#define bM4_PORT_PFSRE4_FSEL3                     (*((volatile unsigned int*)(0x42A7A24CUL)))
-#define bM4_PORT_PFSRE4_FSEL4                     (*((volatile unsigned int*)(0x42A7A250UL)))
-#define bM4_PORT_PFSRE4_FSEL5                     (*((volatile unsigned int*)(0x42A7A254UL)))
-#define bM4_PORT_PFSRE4_BFE                       (*((volatile unsigned int*)(0x42A7A260UL)))
-#define bM4_PORT_PCRE5_POUT                       (*((volatile unsigned int*)(0x42A7A280UL)))
-#define bM4_PORT_PCRE5_POUTE                      (*((volatile unsigned int*)(0x42A7A284UL)))
-#define bM4_PORT_PCRE5_NOD                        (*((volatile unsigned int*)(0x42A7A288UL)))
-#define bM4_PORT_PCRE5_DRV0                       (*((volatile unsigned int*)(0x42A7A290UL)))
-#define bM4_PORT_PCRE5_DRV1                       (*((volatile unsigned int*)(0x42A7A294UL)))
-#define bM4_PORT_PCRE5_PUU                        (*((volatile unsigned int*)(0x42A7A298UL)))
-#define bM4_PORT_PCRE5_PIN                        (*((volatile unsigned int*)(0x42A7A2A0UL)))
-#define bM4_PORT_PCRE5_INVE                       (*((volatile unsigned int*)(0x42A7A2A4UL)))
-#define bM4_PORT_PCRE5_INTE                       (*((volatile unsigned int*)(0x42A7A2B0UL)))
-#define bM4_PORT_PCRE5_LTE                        (*((volatile unsigned int*)(0x42A7A2B8UL)))
-#define bM4_PORT_PCRE5_DDIS                       (*((volatile unsigned int*)(0x42A7A2BCUL)))
-#define bM4_PORT_PFSRE5_FSEL0                     (*((volatile unsigned int*)(0x42A7A2C0UL)))
-#define bM4_PORT_PFSRE5_FSEL1                     (*((volatile unsigned int*)(0x42A7A2C4UL)))
-#define bM4_PORT_PFSRE5_FSEL2                     (*((volatile unsigned int*)(0x42A7A2C8UL)))
-#define bM4_PORT_PFSRE5_FSEL3                     (*((volatile unsigned int*)(0x42A7A2CCUL)))
-#define bM4_PORT_PFSRE5_FSEL4                     (*((volatile unsigned int*)(0x42A7A2D0UL)))
-#define bM4_PORT_PFSRE5_FSEL5                     (*((volatile unsigned int*)(0x42A7A2D4UL)))
-#define bM4_PORT_PFSRE5_BFE                       (*((volatile unsigned int*)(0x42A7A2E0UL)))
-#define bM4_PORT_PCRE6_POUT                       (*((volatile unsigned int*)(0x42A7A300UL)))
-#define bM4_PORT_PCRE6_POUTE                      (*((volatile unsigned int*)(0x42A7A304UL)))
-#define bM4_PORT_PCRE6_NOD                        (*((volatile unsigned int*)(0x42A7A308UL)))
-#define bM4_PORT_PCRE6_DRV0                       (*((volatile unsigned int*)(0x42A7A310UL)))
-#define bM4_PORT_PCRE6_DRV1                       (*((volatile unsigned int*)(0x42A7A314UL)))
-#define bM4_PORT_PCRE6_PUU                        (*((volatile unsigned int*)(0x42A7A318UL)))
-#define bM4_PORT_PCRE6_PIN                        (*((volatile unsigned int*)(0x42A7A320UL)))
-#define bM4_PORT_PCRE6_INVE                       (*((volatile unsigned int*)(0x42A7A324UL)))
-#define bM4_PORT_PCRE6_INTE                       (*((volatile unsigned int*)(0x42A7A330UL)))
-#define bM4_PORT_PCRE6_LTE                        (*((volatile unsigned int*)(0x42A7A338UL)))
-#define bM4_PORT_PCRE6_DDIS                       (*((volatile unsigned int*)(0x42A7A33CUL)))
-#define bM4_PORT_PFSRE6_FSEL0                     (*((volatile unsigned int*)(0x42A7A340UL)))
-#define bM4_PORT_PFSRE6_FSEL1                     (*((volatile unsigned int*)(0x42A7A344UL)))
-#define bM4_PORT_PFSRE6_FSEL2                     (*((volatile unsigned int*)(0x42A7A348UL)))
-#define bM4_PORT_PFSRE6_FSEL3                     (*((volatile unsigned int*)(0x42A7A34CUL)))
-#define bM4_PORT_PFSRE6_FSEL4                     (*((volatile unsigned int*)(0x42A7A350UL)))
-#define bM4_PORT_PFSRE6_FSEL5                     (*((volatile unsigned int*)(0x42A7A354UL)))
-#define bM4_PORT_PFSRE6_BFE                       (*((volatile unsigned int*)(0x42A7A360UL)))
-#define bM4_PORT_PCRE7_POUT                       (*((volatile unsigned int*)(0x42A7A380UL)))
-#define bM4_PORT_PCRE7_POUTE                      (*((volatile unsigned int*)(0x42A7A384UL)))
-#define bM4_PORT_PCRE7_NOD                        (*((volatile unsigned int*)(0x42A7A388UL)))
-#define bM4_PORT_PCRE7_DRV0                       (*((volatile unsigned int*)(0x42A7A390UL)))
-#define bM4_PORT_PCRE7_DRV1                       (*((volatile unsigned int*)(0x42A7A394UL)))
-#define bM4_PORT_PCRE7_PUU                        (*((volatile unsigned int*)(0x42A7A398UL)))
-#define bM4_PORT_PCRE7_PIN                        (*((volatile unsigned int*)(0x42A7A3A0UL)))
-#define bM4_PORT_PCRE7_INVE                       (*((volatile unsigned int*)(0x42A7A3A4UL)))
-#define bM4_PORT_PCRE7_INTE                       (*((volatile unsigned int*)(0x42A7A3B0UL)))
-#define bM4_PORT_PCRE7_LTE                        (*((volatile unsigned int*)(0x42A7A3B8UL)))
-#define bM4_PORT_PCRE7_DDIS                       (*((volatile unsigned int*)(0x42A7A3BCUL)))
-#define bM4_PORT_PFSRE7_FSEL0                     (*((volatile unsigned int*)(0x42A7A3C0UL)))
-#define bM4_PORT_PFSRE7_FSEL1                     (*((volatile unsigned int*)(0x42A7A3C4UL)))
-#define bM4_PORT_PFSRE7_FSEL2                     (*((volatile unsigned int*)(0x42A7A3C8UL)))
-#define bM4_PORT_PFSRE7_FSEL3                     (*((volatile unsigned int*)(0x42A7A3CCUL)))
-#define bM4_PORT_PFSRE7_FSEL4                     (*((volatile unsigned int*)(0x42A7A3D0UL)))
-#define bM4_PORT_PFSRE7_FSEL5                     (*((volatile unsigned int*)(0x42A7A3D4UL)))
-#define bM4_PORT_PFSRE7_BFE                       (*((volatile unsigned int*)(0x42A7A3E0UL)))
-#define bM4_PORT_PCRE8_POUT                       (*((volatile unsigned int*)(0x42A7A400UL)))
-#define bM4_PORT_PCRE8_POUTE                      (*((volatile unsigned int*)(0x42A7A404UL)))
-#define bM4_PORT_PCRE8_NOD                        (*((volatile unsigned int*)(0x42A7A408UL)))
-#define bM4_PORT_PCRE8_DRV0                       (*((volatile unsigned int*)(0x42A7A410UL)))
-#define bM4_PORT_PCRE8_DRV1                       (*((volatile unsigned int*)(0x42A7A414UL)))
-#define bM4_PORT_PCRE8_PUU                        (*((volatile unsigned int*)(0x42A7A418UL)))
-#define bM4_PORT_PCRE8_PIN                        (*((volatile unsigned int*)(0x42A7A420UL)))
-#define bM4_PORT_PCRE8_INVE                       (*((volatile unsigned int*)(0x42A7A424UL)))
-#define bM4_PORT_PCRE8_INTE                       (*((volatile unsigned int*)(0x42A7A430UL)))
-#define bM4_PORT_PCRE8_LTE                        (*((volatile unsigned int*)(0x42A7A438UL)))
-#define bM4_PORT_PCRE8_DDIS                       (*((volatile unsigned int*)(0x42A7A43CUL)))
-#define bM4_PORT_PFSRE8_FSEL0                     (*((volatile unsigned int*)(0x42A7A440UL)))
-#define bM4_PORT_PFSRE8_FSEL1                     (*((volatile unsigned int*)(0x42A7A444UL)))
-#define bM4_PORT_PFSRE8_FSEL2                     (*((volatile unsigned int*)(0x42A7A448UL)))
-#define bM4_PORT_PFSRE8_FSEL3                     (*((volatile unsigned int*)(0x42A7A44CUL)))
-#define bM4_PORT_PFSRE8_FSEL4                     (*((volatile unsigned int*)(0x42A7A450UL)))
-#define bM4_PORT_PFSRE8_FSEL5                     (*((volatile unsigned int*)(0x42A7A454UL)))
-#define bM4_PORT_PFSRE8_BFE                       (*((volatile unsigned int*)(0x42A7A460UL)))
-#define bM4_PORT_PCRE9_POUT                       (*((volatile unsigned int*)(0x42A7A480UL)))
-#define bM4_PORT_PCRE9_POUTE                      (*((volatile unsigned int*)(0x42A7A484UL)))
-#define bM4_PORT_PCRE9_NOD                        (*((volatile unsigned int*)(0x42A7A488UL)))
-#define bM4_PORT_PCRE9_DRV0                       (*((volatile unsigned int*)(0x42A7A490UL)))
-#define bM4_PORT_PCRE9_DRV1                       (*((volatile unsigned int*)(0x42A7A494UL)))
-#define bM4_PORT_PCRE9_PUU                        (*((volatile unsigned int*)(0x42A7A498UL)))
-#define bM4_PORT_PCRE9_PIN                        (*((volatile unsigned int*)(0x42A7A4A0UL)))
-#define bM4_PORT_PCRE9_INVE                       (*((volatile unsigned int*)(0x42A7A4A4UL)))
-#define bM4_PORT_PCRE9_INTE                       (*((volatile unsigned int*)(0x42A7A4B0UL)))
-#define bM4_PORT_PCRE9_LTE                        (*((volatile unsigned int*)(0x42A7A4B8UL)))
-#define bM4_PORT_PCRE9_DDIS                       (*((volatile unsigned int*)(0x42A7A4BCUL)))
-#define bM4_PORT_PFSRE9_FSEL0                     (*((volatile unsigned int*)(0x42A7A4C0UL)))
-#define bM4_PORT_PFSRE9_FSEL1                     (*((volatile unsigned int*)(0x42A7A4C4UL)))
-#define bM4_PORT_PFSRE9_FSEL2                     (*((volatile unsigned int*)(0x42A7A4C8UL)))
-#define bM4_PORT_PFSRE9_FSEL3                     (*((volatile unsigned int*)(0x42A7A4CCUL)))
-#define bM4_PORT_PFSRE9_FSEL4                     (*((volatile unsigned int*)(0x42A7A4D0UL)))
-#define bM4_PORT_PFSRE9_FSEL5                     (*((volatile unsigned int*)(0x42A7A4D4UL)))
-#define bM4_PORT_PFSRE9_BFE                       (*((volatile unsigned int*)(0x42A7A4E0UL)))
-#define bM4_PORT_PCRE10_POUT                      (*((volatile unsigned int*)(0x42A7A500UL)))
-#define bM4_PORT_PCRE10_POUTE                     (*((volatile unsigned int*)(0x42A7A504UL)))
-#define bM4_PORT_PCRE10_NOD                       (*((volatile unsigned int*)(0x42A7A508UL)))
-#define bM4_PORT_PCRE10_DRV0                      (*((volatile unsigned int*)(0x42A7A510UL)))
-#define bM4_PORT_PCRE10_DRV1                      (*((volatile unsigned int*)(0x42A7A514UL)))
-#define bM4_PORT_PCRE10_PUU                       (*((volatile unsigned int*)(0x42A7A518UL)))
-#define bM4_PORT_PCRE10_PIN                       (*((volatile unsigned int*)(0x42A7A520UL)))
-#define bM4_PORT_PCRE10_INVE                      (*((volatile unsigned int*)(0x42A7A524UL)))
-#define bM4_PORT_PCRE10_INTE                      (*((volatile unsigned int*)(0x42A7A530UL)))
-#define bM4_PORT_PCRE10_LTE                       (*((volatile unsigned int*)(0x42A7A538UL)))
-#define bM4_PORT_PCRE10_DDIS                      (*((volatile unsigned int*)(0x42A7A53CUL)))
-#define bM4_PORT_PFSRE10_FSEL0                    (*((volatile unsigned int*)(0x42A7A540UL)))
-#define bM4_PORT_PFSRE10_FSEL1                    (*((volatile unsigned int*)(0x42A7A544UL)))
-#define bM4_PORT_PFSRE10_FSEL2                    (*((volatile unsigned int*)(0x42A7A548UL)))
-#define bM4_PORT_PFSRE10_FSEL3                    (*((volatile unsigned int*)(0x42A7A54CUL)))
-#define bM4_PORT_PFSRE10_FSEL4                    (*((volatile unsigned int*)(0x42A7A550UL)))
-#define bM4_PORT_PFSRE10_FSEL5                    (*((volatile unsigned int*)(0x42A7A554UL)))
-#define bM4_PORT_PFSRE10_BFE                      (*((volatile unsigned int*)(0x42A7A560UL)))
-#define bM4_PORT_PCRE11_POUT                      (*((volatile unsigned int*)(0x42A7A580UL)))
-#define bM4_PORT_PCRE11_POUTE                     (*((volatile unsigned int*)(0x42A7A584UL)))
-#define bM4_PORT_PCRE11_NOD                       (*((volatile unsigned int*)(0x42A7A588UL)))
-#define bM4_PORT_PCRE11_DRV0                      (*((volatile unsigned int*)(0x42A7A590UL)))
-#define bM4_PORT_PCRE11_DRV1                      (*((volatile unsigned int*)(0x42A7A594UL)))
-#define bM4_PORT_PCRE11_PUU                       (*((volatile unsigned int*)(0x42A7A598UL)))
-#define bM4_PORT_PCRE11_PIN                       (*((volatile unsigned int*)(0x42A7A5A0UL)))
-#define bM4_PORT_PCRE11_INVE                      (*((volatile unsigned int*)(0x42A7A5A4UL)))
-#define bM4_PORT_PCRE11_INTE                      (*((volatile unsigned int*)(0x42A7A5B0UL)))
-#define bM4_PORT_PCRE11_LTE                       (*((volatile unsigned int*)(0x42A7A5B8UL)))
-#define bM4_PORT_PCRE11_DDIS                      (*((volatile unsigned int*)(0x42A7A5BCUL)))
-#define bM4_PORT_PFSRE11_FSEL0                    (*((volatile unsigned int*)(0x42A7A5C0UL)))
-#define bM4_PORT_PFSRE11_FSEL1                    (*((volatile unsigned int*)(0x42A7A5C4UL)))
-#define bM4_PORT_PFSRE11_FSEL2                    (*((volatile unsigned int*)(0x42A7A5C8UL)))
-#define bM4_PORT_PFSRE11_FSEL3                    (*((volatile unsigned int*)(0x42A7A5CCUL)))
-#define bM4_PORT_PFSRE11_FSEL4                    (*((volatile unsigned int*)(0x42A7A5D0UL)))
-#define bM4_PORT_PFSRE11_FSEL5                    (*((volatile unsigned int*)(0x42A7A5D4UL)))
-#define bM4_PORT_PFSRE11_BFE                      (*((volatile unsigned int*)(0x42A7A5E0UL)))
-#define bM4_PORT_PCRE12_POUT                      (*((volatile unsigned int*)(0x42A7A600UL)))
-#define bM4_PORT_PCRE12_POUTE                     (*((volatile unsigned int*)(0x42A7A604UL)))
-#define bM4_PORT_PCRE12_NOD                       (*((volatile unsigned int*)(0x42A7A608UL)))
-#define bM4_PORT_PCRE12_DRV0                      (*((volatile unsigned int*)(0x42A7A610UL)))
-#define bM4_PORT_PCRE12_DRV1                      (*((volatile unsigned int*)(0x42A7A614UL)))
-#define bM4_PORT_PCRE12_PUU                       (*((volatile unsigned int*)(0x42A7A618UL)))
-#define bM4_PORT_PCRE12_PIN                       (*((volatile unsigned int*)(0x42A7A620UL)))
-#define bM4_PORT_PCRE12_INVE                      (*((volatile unsigned int*)(0x42A7A624UL)))
-#define bM4_PORT_PCRE12_INTE                      (*((volatile unsigned int*)(0x42A7A630UL)))
-#define bM4_PORT_PCRE12_LTE                       (*((volatile unsigned int*)(0x42A7A638UL)))
-#define bM4_PORT_PCRE12_DDIS                      (*((volatile unsigned int*)(0x42A7A63CUL)))
-#define bM4_PORT_PFSRE12_FSEL0                    (*((volatile unsigned int*)(0x42A7A640UL)))
-#define bM4_PORT_PFSRE12_FSEL1                    (*((volatile unsigned int*)(0x42A7A644UL)))
-#define bM4_PORT_PFSRE12_FSEL2                    (*((volatile unsigned int*)(0x42A7A648UL)))
-#define bM4_PORT_PFSRE12_FSEL3                    (*((volatile unsigned int*)(0x42A7A64CUL)))
-#define bM4_PORT_PFSRE12_FSEL4                    (*((volatile unsigned int*)(0x42A7A650UL)))
-#define bM4_PORT_PFSRE12_FSEL5                    (*((volatile unsigned int*)(0x42A7A654UL)))
-#define bM4_PORT_PFSRE12_BFE                      (*((volatile unsigned int*)(0x42A7A660UL)))
-#define bM4_PORT_PCRE13_POUT                      (*((volatile unsigned int*)(0x42A7A680UL)))
-#define bM4_PORT_PCRE13_POUTE                     (*((volatile unsigned int*)(0x42A7A684UL)))
-#define bM4_PORT_PCRE13_NOD                       (*((volatile unsigned int*)(0x42A7A688UL)))
-#define bM4_PORT_PCRE13_DRV0                      (*((volatile unsigned int*)(0x42A7A690UL)))
-#define bM4_PORT_PCRE13_DRV1                      (*((volatile unsigned int*)(0x42A7A694UL)))
-#define bM4_PORT_PCRE13_PUU                       (*((volatile unsigned int*)(0x42A7A698UL)))
-#define bM4_PORT_PCRE13_PIN                       (*((volatile unsigned int*)(0x42A7A6A0UL)))
-#define bM4_PORT_PCRE13_INVE                      (*((volatile unsigned int*)(0x42A7A6A4UL)))
-#define bM4_PORT_PCRE13_INTE                      (*((volatile unsigned int*)(0x42A7A6B0UL)))
-#define bM4_PORT_PCRE13_LTE                       (*((volatile unsigned int*)(0x42A7A6B8UL)))
-#define bM4_PORT_PCRE13_DDIS                      (*((volatile unsigned int*)(0x42A7A6BCUL)))
-#define bM4_PORT_PFSRE13_FSEL0                    (*((volatile unsigned int*)(0x42A7A6C0UL)))
-#define bM4_PORT_PFSRE13_FSEL1                    (*((volatile unsigned int*)(0x42A7A6C4UL)))
-#define bM4_PORT_PFSRE13_FSEL2                    (*((volatile unsigned int*)(0x42A7A6C8UL)))
-#define bM4_PORT_PFSRE13_FSEL3                    (*((volatile unsigned int*)(0x42A7A6CCUL)))
-#define bM4_PORT_PFSRE13_FSEL4                    (*((volatile unsigned int*)(0x42A7A6D0UL)))
-#define bM4_PORT_PFSRE13_FSEL5                    (*((volatile unsigned int*)(0x42A7A6D4UL)))
-#define bM4_PORT_PFSRE13_BFE                      (*((volatile unsigned int*)(0x42A7A6E0UL)))
-#define bM4_PORT_PCRE14_POUT                      (*((volatile unsigned int*)(0x42A7A700UL)))
-#define bM4_PORT_PCRE14_POUTE                     (*((volatile unsigned int*)(0x42A7A704UL)))
-#define bM4_PORT_PCRE14_NOD                       (*((volatile unsigned int*)(0x42A7A708UL)))
-#define bM4_PORT_PCRE14_DRV0                      (*((volatile unsigned int*)(0x42A7A710UL)))
-#define bM4_PORT_PCRE14_DRV1                      (*((volatile unsigned int*)(0x42A7A714UL)))
-#define bM4_PORT_PCRE14_PUU                       (*((volatile unsigned int*)(0x42A7A718UL)))
-#define bM4_PORT_PCRE14_PIN                       (*((volatile unsigned int*)(0x42A7A720UL)))
-#define bM4_PORT_PCRE14_INVE                      (*((volatile unsigned int*)(0x42A7A724UL)))
-#define bM4_PORT_PCRE14_INTE                      (*((volatile unsigned int*)(0x42A7A730UL)))
-#define bM4_PORT_PCRE14_LTE                       (*((volatile unsigned int*)(0x42A7A738UL)))
-#define bM4_PORT_PCRE14_DDIS                      (*((volatile unsigned int*)(0x42A7A73CUL)))
-#define bM4_PORT_PFSRE14_FSEL0                    (*((volatile unsigned int*)(0x42A7A740UL)))
-#define bM4_PORT_PFSRE14_FSEL1                    (*((volatile unsigned int*)(0x42A7A744UL)))
-#define bM4_PORT_PFSRE14_FSEL2                    (*((volatile unsigned int*)(0x42A7A748UL)))
-#define bM4_PORT_PFSRE14_FSEL3                    (*((volatile unsigned int*)(0x42A7A74CUL)))
-#define bM4_PORT_PFSRE14_FSEL4                    (*((volatile unsigned int*)(0x42A7A750UL)))
-#define bM4_PORT_PFSRE14_FSEL5                    (*((volatile unsigned int*)(0x42A7A754UL)))
-#define bM4_PORT_PFSRE14_BFE                      (*((volatile unsigned int*)(0x42A7A760UL)))
-#define bM4_PORT_PCRE15_POUT                      (*((volatile unsigned int*)(0x42A7A780UL)))
-#define bM4_PORT_PCRE15_POUTE                     (*((volatile unsigned int*)(0x42A7A784UL)))
-#define bM4_PORT_PCRE15_NOD                       (*((volatile unsigned int*)(0x42A7A788UL)))
-#define bM4_PORT_PCRE15_DRV0                      (*((volatile unsigned int*)(0x42A7A790UL)))
-#define bM4_PORT_PCRE15_DRV1                      (*((volatile unsigned int*)(0x42A7A794UL)))
-#define bM4_PORT_PCRE15_PUU                       (*((volatile unsigned int*)(0x42A7A798UL)))
-#define bM4_PORT_PCRE15_PIN                       (*((volatile unsigned int*)(0x42A7A7A0UL)))
-#define bM4_PORT_PCRE15_INVE                      (*((volatile unsigned int*)(0x42A7A7A4UL)))
-#define bM4_PORT_PCRE15_INTE                      (*((volatile unsigned int*)(0x42A7A7B0UL)))
-#define bM4_PORT_PCRE15_LTE                       (*((volatile unsigned int*)(0x42A7A7B8UL)))
-#define bM4_PORT_PCRE15_DDIS                      (*((volatile unsigned int*)(0x42A7A7BCUL)))
-#define bM4_PORT_PFSRE15_FSEL0                    (*((volatile unsigned int*)(0x42A7A7C0UL)))
-#define bM4_PORT_PFSRE15_FSEL1                    (*((volatile unsigned int*)(0x42A7A7C4UL)))
-#define bM4_PORT_PFSRE15_FSEL2                    (*((volatile unsigned int*)(0x42A7A7C8UL)))
-#define bM4_PORT_PFSRE15_FSEL3                    (*((volatile unsigned int*)(0x42A7A7CCUL)))
-#define bM4_PORT_PFSRE15_FSEL4                    (*((volatile unsigned int*)(0x42A7A7D0UL)))
-#define bM4_PORT_PFSRE15_FSEL5                    (*((volatile unsigned int*)(0x42A7A7D4UL)))
-#define bM4_PORT_PFSRE15_BFE                      (*((volatile unsigned int*)(0x42A7A7E0UL)))
 #define bM4_PORT_PCRH0_POUT                       (*((volatile unsigned int*)(0x42A7A800UL)))
 #define bM4_PORT_PCRH0_POUTE                      (*((volatile unsigned int*)(0x42A7A804UL)))
 #define bM4_PORT_PCRH0_NOD                        (*((volatile unsigned int*)(0x42A7A808UL)))
@@ -30694,5 +29660,5 @@ typedef struct
 }
 #endif
 
-#endif /* __HC32F460_H__ */
+#endif /* __HC32F460KCTA_H__ */
 

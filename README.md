@@ -1,6 +1,6 @@
 # PlatformIO support for HUADA HC32F460 Series DDL
 
-This repository contains the [HUADA HC32F460 Series DDL](https://www.hdsc.com.cn/Category83-1487), adapted to work with platformio and [the hc32f46x platform](https://github.com/shadow578/platform-hc32f46x).
+This repository contains the [HUADA HC32F460 Series DDL](https://www.hdsc.com.cn/Category83-1487), adapted to work with platformio and [the hc32f46x platform](https://github.com/smokeypell/platform-hc32f460kcta).
 
 Primary usage is for [Marlin](https://github.com/shadow578/Marlin-H32), tho other use cases should work too.
 

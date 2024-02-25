@@ -21,6 +21,7 @@
 /*******************************************************************************
  * Include files
  ******************************************************************************/
+#include <stdio.h>
 #include <string.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -109,19 +110,31 @@ typedef enum en_result
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
+/**
+ *******************************************************************************
+ ** \brief Hc32 Series common part version number v1.0.0
+ ******************************************************************************/
+#define HC32_COMMON_PART_VERSION_MAIN               0x01u   ///< [31:24] main version                            
+#define HC32_COMMON_PART_VERSION_SUB1               0x00u   ///< [23:16] sub1 version
+#define HC32_COMMON_PART_VERSION_SUB2               0x00u   ///< [15:8]  sub2 version
+#define HC32_COMMON_PART_VERSION_RC                 0x00u   ///< [7:0]   release candidate
+#define HC32_COMMON_PART_VERSION                    ((HC32_COMMON_PART_VERSION_MAIN << 24) | \
+                                                     (HC32_COMMON_PART_VERSION_SUB1 << 16) | \
+                                                     (HC32_COMMON_PART_VERSION_SUB2 << 8 ) | \
+                                                     (HC32_COMMON_PART_VERSION_RC))
 
 /**
  *******************************************************************************
  ** \brief Device include
  ******************************************************************************/
 #if defined(HC32F460)
-#include "hc32f460.h"
-#include "system_hc32f460.h"
+    #include "hc32f460kcta.h"
+    #include "system_hc32f460kcta.h"
 #elif defined(HC32xxxx)
-#include "hc32xxxx.h"
-#include "system_hc32xxxx.h"
+    #include "hc32xxxx.h"
+    #include "system_hc32xxxx.h"
 #else
-#error "Please select first the target HC32xxxx device used in your application (in hc32xxxx.h file)"
+    #error "Please select first the target HC32xxxx device used in your application (in hc32xxxx.h file)"
 #endif
 
 /*! Weak and Align compiler definition */
@@ -143,7 +156,7 @@ typedef enum en_result
     /* Usage: void __RAM_FUNC foo(void) */
   #endif /* __RAM_FUNC */
 #elif defined (__ICCARM__)                ///< IAR Compiler
-#define __WEAKDEF                       __weak
+#define __WEAKDEF                       __weak        
 #define __ALIGN_BEGIN                   _Pragma("data_alignment=4")
 #define __NOINLINE                      _Pragma("optimize = no_inline")
 #define __UNUSED                        __attribute__((unused))
@@ -169,7 +182,7 @@ typedef enum en_result
 
 /*! Memory clear */
 #define MEM_ZERO_STRUCT(x)              do {                                   \
-                                        memset((void*)&(x), 0L, (sizeof(x)));  \
+                                        memset((void*)&(x), 0l, (sizeof(x)));  \
                                         }while(0)
 
 /*! Decimal to BCD */
@@ -196,7 +209,7 @@ typedef enum en_result
 
 #define BIT_READ(value,bit)             ((value) & (bit))
 
-#define BIT_VALUE(index)                (1UL << (index))
+#define BIT_VALUE(index)                (1ul << (index))
 
 /*******************************************************************************
  * Global variable definitions ('extern')

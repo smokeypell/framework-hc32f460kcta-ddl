@@ -303,7 +303,7 @@ en_result_t enIntDisable(uint32_t u32Int)
  ** \brief NMI IRQ handler
  **
  ******************************************************************************/
-__WEAK void NMI_Handler(void)
+void NMI_Handler(void)
 {
     NMI_IrqHandler();
 }
@@ -313,7 +313,7 @@ __WEAK void NMI_Handler(void)
  ** \brief Hard Fault IRQ handler
  **
  ******************************************************************************/
-__WEAK void HardFault_Handler(void)
+void HardFault_Handler(void)
 {
     HardFault_IrqHandler();
 }
@@ -323,7 +323,7 @@ __WEAK void HardFault_Handler(void)
  ** \brief MPU Fault IRQ handler
  **
  ******************************************************************************/
-__WEAK void MemManage_Handler(void)
+void MemManage_Handler(void)
 {
     MemManage_IrqHandler();
 }
@@ -333,7 +333,7 @@ __WEAK void MemManage_Handler(void)
  ** \brief Bus Fault IRQ handler
  **
  ******************************************************************************/
-__WEAK void BusFault_Handler(void)
+void BusFault_Handler(void)
 {
     BusFault_IrqHandler();
 }
@@ -343,7 +343,7 @@ __WEAK void BusFault_Handler(void)
  ** \brief Usage Fault IRQ handler
  **
  ******************************************************************************/
-__WEAK void UsageFault_Handler(void)
+void UsageFault_Handler(void)
 {
     UsageFault_IrqHandler();
 }
@@ -353,7 +353,7 @@ __WEAK void UsageFault_Handler(void)
  ** \brief SVCall IRQ handler
  **
  ******************************************************************************/
-__WEAK void SVC_Handler(void)
+void SVC_Handler(void)
 {
     SVC_IrqHandler();
 }
@@ -363,7 +363,7 @@ __WEAK void SVC_Handler(void)
  ** \brief DebugMon IRQ handler
  **
  ******************************************************************************/
-__WEAK void DebugMon_Handler(void)
+void DebugMon_Handler(void)
 {
     DebugMon_IrqHandler();
 }
@@ -373,7 +373,7 @@ __WEAK void DebugMon_Handler(void)
  ** \brief PendSV IRQ handler
  **
  ******************************************************************************/
-__WEAK void PendSV_Handler(void)
+void PendSV_Handler(void)
 {
     PendSV_IrqHandler();
 }
@@ -383,7 +383,7 @@ __WEAK void PendSV_Handler(void)
  ** \brief Systick IRQ handler
  **
  ******************************************************************************/
-__WEAK void SysTick_Handler(void)
+void SysTick_Handler(void)
 {
     SysTick_IrqHandler();
 }
@@ -393,7 +393,7 @@ __WEAK void SysTick_Handler(void)
  ** \brief Int No.000 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ000_Handler(void)
+void IRQ000_Handler(void)
 {
     if (NULL != IrqHandler[Int000_IRQn])
     {
@@ -406,7 +406,7 @@ __WEAK void IRQ000_Handler(void)
  ** \brief Int No.001 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ001_Handler(void)
+void IRQ001_Handler(void)
 {
     if (NULL != IrqHandler[Int001_IRQn])
     {
@@ -419,7 +419,7 @@ __WEAK void IRQ001_Handler(void)
  ** \brief Int No.002 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ002_Handler(void)
+void IRQ002_Handler(void)
 {
     if (NULL != IrqHandler[Int002_IRQn])
     {
@@ -432,7 +432,7 @@ __WEAK void IRQ002_Handler(void)
  ** \brief Int No.003 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ003_Handler(void)
+void IRQ003_Handler(void)
 {
     if (NULL != IrqHandler[Int003_IRQn])
     {
@@ -445,7 +445,7 @@ __WEAK void IRQ003_Handler(void)
  ** \brief Int No.004 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ004_Handler(void)
+void IRQ004_Handler(void)
 {
     if (NULL != IrqHandler[Int004_IRQn])
     {
@@ -458,7 +458,7 @@ __WEAK void IRQ004_Handler(void)
  ** \brief Int No.005 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ005_Handler(void)
+void IRQ005_Handler(void)
 {
     if (NULL != IrqHandler[Int005_IRQn])
     {
@@ -471,7 +471,7 @@ __WEAK void IRQ005_Handler(void)
  ** \brief Int No.006 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ006_Handler(void)
+void IRQ006_Handler(void)
 {
     if (NULL != IrqHandler[Int006_IRQn])
     {
@@ -484,7 +484,7 @@ __WEAK void IRQ006_Handler(void)
  ** \brief Int No.007 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ007_Handler(void)
+void IRQ007_Handler(void)
 {
     if (NULL != IrqHandler[Int007_IRQn])
     {
@@ -497,7 +497,7 @@ __WEAK void IRQ007_Handler(void)
  ** \brief Int No.008 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ008_Handler(void)
+void IRQ008_Handler(void)
 {
     if (NULL != IrqHandler[Int008_IRQn])
     {
@@ -510,7 +510,7 @@ __WEAK void IRQ008_Handler(void)
  ** \brief Int No.009 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ009_Handler(void)
+void IRQ009_Handler(void)
 {
     if (NULL != IrqHandler[Int009_IRQn])
     {
@@ -523,7 +523,7 @@ __WEAK void IRQ009_Handler(void)
  ** \brief Int No.010 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ010_Handler(void)
+void IRQ010_Handler(void)
 {
     if (NULL != IrqHandler[Int010_IRQn])
     {
@@ -536,7 +536,7 @@ __WEAK void IRQ010_Handler(void)
  ** \brief Int No.011 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ011_Handler(void)
+void IRQ011_Handler(void)
 {
     if (NULL != IrqHandler[Int011_IRQn])
     {
@@ -549,7 +549,7 @@ __WEAK void IRQ011_Handler(void)
  ** \brief Int No.012 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ012_Handler(void)
+void IRQ012_Handler(void)
 {
     if (NULL != IrqHandler[Int012_IRQn])
     {
@@ -562,7 +562,7 @@ __WEAK void IRQ012_Handler(void)
  ** \brief Int No.013 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ013_Handler(void)
+void IRQ013_Handler(void)
 {
     if (NULL != IrqHandler[Int013_IRQn])
     {
@@ -575,7 +575,7 @@ __WEAK void IRQ013_Handler(void)
  ** \brief Int No.014 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ014_Handler(void)
+void IRQ014_Handler(void)
 {
     if (NULL != IrqHandler[Int014_IRQn])
     {
@@ -588,7 +588,7 @@ __WEAK void IRQ014_Handler(void)
  ** \brief Int No.015 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ015_Handler(void)
+void IRQ015_Handler(void)
 {
     if (NULL != IrqHandler[Int015_IRQn])
     {
@@ -601,7 +601,7 @@ __WEAK void IRQ015_Handler(void)
  ** \brief Int No.016 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ016_Handler(void)
+void IRQ016_Handler(void)
 {
     if (NULL != IrqHandler[Int016_IRQn])
     {
@@ -614,7 +614,7 @@ __WEAK void IRQ016_Handler(void)
  ** \brief Int No.017 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ017_Handler(void)
+void IRQ017_Handler(void)
 {
     if (NULL != IrqHandler[Int017_IRQn])
     {
@@ -627,7 +627,7 @@ __WEAK void IRQ017_Handler(void)
  ** \brief Int No.018 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ018_Handler(void)
+void IRQ018_Handler(void)
 {
     if (NULL != IrqHandler[Int018_IRQn])
     {
@@ -640,7 +640,7 @@ __WEAK void IRQ018_Handler(void)
  ** \brief Int No.019 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ019_Handler(void)
+void IRQ019_Handler(void)
 {
     if (NULL != IrqHandler[Int019_IRQn])
     {
@@ -653,7 +653,7 @@ __WEAK void IRQ019_Handler(void)
  ** \brief Int No.020 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ020_Handler(void)
+void IRQ020_Handler(void)
 {
     if (NULL != IrqHandler[Int020_IRQn])
     {
@@ -666,7 +666,7 @@ __WEAK void IRQ020_Handler(void)
  ** \brief Int No.021 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ021_Handler(void)
+void IRQ021_Handler(void)
 {
     if (NULL != IrqHandler[Int021_IRQn])
     {
@@ -679,7 +679,7 @@ __WEAK void IRQ021_Handler(void)
  ** \brief Int No.022 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ022_Handler(void)
+void IRQ022_Handler(void)
 {
     if (NULL != IrqHandler[Int022_IRQn])
     {
@@ -692,7 +692,7 @@ __WEAK void IRQ022_Handler(void)
  ** \brief Int No.023 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ023_Handler(void)
+void IRQ023_Handler(void)
 {
     if (NULL != IrqHandler[Int023_IRQn])
     {
@@ -705,7 +705,7 @@ __WEAK void IRQ023_Handler(void)
  ** \brief Int No.024 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ024_Handler(void)
+void IRQ024_Handler(void)
 {
     if (NULL != IrqHandler[Int024_IRQn])
     {
@@ -718,7 +718,7 @@ __WEAK void IRQ024_Handler(void)
  ** \brief Int No.025 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ025_Handler(void)
+void IRQ025_Handler(void)
 {
     if (NULL != IrqHandler[Int025_IRQn])
     {
@@ -731,7 +731,7 @@ __WEAK void IRQ025_Handler(void)
  ** \brief Int No.026 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ026_Handler(void)
+void IRQ026_Handler(void)
 {
     if (NULL != IrqHandler[Int026_IRQn])
     {
@@ -744,7 +744,7 @@ __WEAK void IRQ026_Handler(void)
  ** \brief Int No.027 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ027_Handler(void)
+void IRQ027_Handler(void)
 {
     if (NULL != IrqHandler[Int027_IRQn])
     {
@@ -757,7 +757,7 @@ __WEAK void IRQ027_Handler(void)
  ** \brief Int No.028 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ028_Handler(void)
+void IRQ028_Handler(void)
 {
     if (NULL != IrqHandler[Int028_IRQn])
     {
@@ -770,7 +770,7 @@ __WEAK void IRQ028_Handler(void)
  ** \brief Int No.029 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ029_Handler(void)
+void IRQ029_Handler(void)
 {
     if (NULL != IrqHandler[Int029_IRQn])
     {
@@ -783,7 +783,7 @@ __WEAK void IRQ029_Handler(void)
  ** \brief Int No.030 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ030_Handler(void)
+void IRQ030_Handler(void)
 {
     if (NULL != IrqHandler[Int030_IRQn])
     {
@@ -796,7 +796,7 @@ __WEAK void IRQ030_Handler(void)
  ** \brief Int No.031 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ031_Handler(void)
+void IRQ031_Handler(void)
 {
     if (NULL != IrqHandler[Int031_IRQn])
     {
@@ -809,7 +809,7 @@ __WEAK void IRQ031_Handler(void)
  ** \brief Int No.032 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ032_Handler(void)
+void IRQ032_Handler(void)
 {
     if (NULL != IrqHandler[Int032_IRQn])
     {
@@ -822,7 +822,7 @@ __WEAK void IRQ032_Handler(void)
  ** \brief Int No.033 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ033_Handler(void)
+void IRQ033_Handler(void)
 {
     if (NULL != IrqHandler[Int033_IRQn])
     {
@@ -835,7 +835,7 @@ __WEAK void IRQ033_Handler(void)
  ** \brief Int No.034 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ034_Handler(void)
+void IRQ034_Handler(void)
 {
     if (NULL != IrqHandler[Int034_IRQn])
     {
@@ -848,7 +848,7 @@ __WEAK void IRQ034_Handler(void)
  ** \brief Int No.035 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ035_Handler(void)
+void IRQ035_Handler(void)
 {
     if (NULL != IrqHandler[Int035_IRQn])
     {
@@ -861,7 +861,7 @@ __WEAK void IRQ035_Handler(void)
  ** \brief Int No.036 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ036_Handler(void)
+void IRQ036_Handler(void)
 {
     if (NULL != IrqHandler[Int036_IRQn])
     {
@@ -874,7 +874,7 @@ __WEAK void IRQ036_Handler(void)
  ** \brief Int No.037 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ037_Handler(void)
+void IRQ037_Handler(void)
 {
     if (NULL != IrqHandler[Int037_IRQn])
     {
@@ -887,7 +887,7 @@ __WEAK void IRQ037_Handler(void)
  ** \brief Int No.038 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ038_Handler(void)
+void IRQ038_Handler(void)
 {
     if (NULL != IrqHandler[Int038_IRQn])
     {
@@ -900,7 +900,7 @@ __WEAK void IRQ038_Handler(void)
  ** \brief Int No.039 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ039_Handler(void)
+void IRQ039_Handler(void)
 {
     if (NULL != IrqHandler[Int039_IRQn])
     {
@@ -913,7 +913,7 @@ __WEAK void IRQ039_Handler(void)
  ** \brief Int No.040 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ040_Handler(void)
+void IRQ040_Handler(void)
 {
     if (NULL != IrqHandler[Int040_IRQn])
     {
@@ -926,7 +926,7 @@ __WEAK void IRQ040_Handler(void)
  ** \brief Int No.041 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ041_Handler(void)
+void IRQ041_Handler(void)
 {
     if (NULL != IrqHandler[Int041_IRQn])
     {
@@ -939,7 +939,7 @@ __WEAK void IRQ041_Handler(void)
  ** \brief Int No.042 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ042_Handler(void)
+void IRQ042_Handler(void)
 {
     if (NULL != IrqHandler[Int042_IRQn])
     {
@@ -952,7 +952,7 @@ __WEAK void IRQ042_Handler(void)
  ** \brief Int No.043 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ043_Handler(void)
+void IRQ043_Handler(void)
 {
     if (NULL != IrqHandler[Int043_IRQn])
     {
@@ -965,7 +965,7 @@ __WEAK void IRQ043_Handler(void)
  ** \brief Int No.044 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ044_Handler(void)
+void IRQ044_Handler(void)
 {
     if (NULL != IrqHandler[Int044_IRQn])
     {
@@ -978,7 +978,7 @@ __WEAK void IRQ044_Handler(void)
  ** \brief Int No.045 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ045_Handler(void)
+void IRQ045_Handler(void)
 {
     if (NULL != IrqHandler[Int045_IRQn])
     {
@@ -991,7 +991,7 @@ __WEAK void IRQ045_Handler(void)
  ** \brief Int No.046 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ046_Handler(void)
+void IRQ046_Handler(void)
 {
     if (NULL != IrqHandler[Int046_IRQn])
     {
@@ -1004,7 +1004,7 @@ __WEAK void IRQ046_Handler(void)
  ** \brief Int No.047 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ047_Handler(void)
+void IRQ047_Handler(void)
 {
     if (NULL != IrqHandler[Int047_IRQn])
     {
@@ -1017,7 +1017,7 @@ __WEAK void IRQ047_Handler(void)
  ** \brief Int No.048 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ048_Handler(void)
+void IRQ048_Handler(void)
 {
     if (NULL != IrqHandler[Int048_IRQn])
     {
@@ -1030,7 +1030,7 @@ __WEAK void IRQ048_Handler(void)
  ** \brief Int No.049 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ049_Handler(void)
+void IRQ049_Handler(void)
 {
     if (NULL != IrqHandler[Int049_IRQn])
     {
@@ -1043,7 +1043,7 @@ __WEAK void IRQ049_Handler(void)
  ** \brief Int No.050 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ050_Handler(void)
+void IRQ050_Handler(void)
 {
     if (NULL != IrqHandler[Int050_IRQn])
     {
@@ -1056,7 +1056,7 @@ __WEAK void IRQ050_Handler(void)
  ** \brief Int No.051 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ051_Handler(void)
+void IRQ051_Handler(void)
 {
     if (NULL != IrqHandler[Int051_IRQn])
     {
@@ -1069,7 +1069,7 @@ __WEAK void IRQ051_Handler(void)
  ** \brief Int No.052 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ052_Handler(void)
+void IRQ052_Handler(void)
 {
     if (NULL != IrqHandler[Int052_IRQn])
     {
@@ -1082,7 +1082,7 @@ __WEAK void IRQ052_Handler(void)
  ** \brief Int No.053 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ053_Handler(void)
+void IRQ053_Handler(void)
 {
     if (NULL != IrqHandler[Int053_IRQn])
     {
@@ -1095,7 +1095,7 @@ __WEAK void IRQ053_Handler(void)
  ** \brief Int No.054 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ054_Handler(void)
+void IRQ054_Handler(void)
 {
     if (NULL != IrqHandler[Int054_IRQn])
     {
@@ -1108,7 +1108,7 @@ __WEAK void IRQ054_Handler(void)
  ** \brief Int No.055 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ055_Handler(void)
+void IRQ055_Handler(void)
 {
     if (NULL != IrqHandler[Int055_IRQn])
     {
@@ -1121,7 +1121,7 @@ __WEAK void IRQ055_Handler(void)
  ** \brief Int No.056 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ056_Handler(void)
+void IRQ056_Handler(void)
 {
     if (NULL != IrqHandler[Int056_IRQn])
     {
@@ -1134,7 +1134,7 @@ __WEAK void IRQ056_Handler(void)
  ** \brief Int No.057 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ057_Handler(void)
+void IRQ057_Handler(void)
 {
     if (NULL != IrqHandler[Int057_IRQn])
     {
@@ -1147,7 +1147,7 @@ __WEAK void IRQ057_Handler(void)
  ** \brief Int No.058 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ058_Handler(void)
+void IRQ058_Handler(void)
 {
     if (NULL != IrqHandler[Int058_IRQn])
     {
@@ -1160,7 +1160,7 @@ __WEAK void IRQ058_Handler(void)
  ** \brief Int No.059 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ059_Handler(void)
+void IRQ059_Handler(void)
 {
     if (NULL != IrqHandler[Int059_IRQn])
     {
@@ -1173,7 +1173,7 @@ __WEAK void IRQ059_Handler(void)
  ** \brief Int No.060 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ060_Handler(void)
+void IRQ060_Handler(void)
 {
     if (NULL != IrqHandler[Int060_IRQn])
     {
@@ -1186,7 +1186,7 @@ __WEAK void IRQ060_Handler(void)
  ** \brief Int No.061 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ061_Handler(void)
+void IRQ061_Handler(void)
 {
     if (NULL != IrqHandler[Int061_IRQn])
     {
@@ -1199,7 +1199,7 @@ __WEAK void IRQ061_Handler(void)
  ** \brief Int No.062 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ062_Handler(void)
+void IRQ062_Handler(void)
 {
     if (NULL != IrqHandler[Int062_IRQn])
     {
@@ -1212,7 +1212,7 @@ __WEAK void IRQ062_Handler(void)
  ** \brief Int No.063 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ063_Handler(void)
+void IRQ063_Handler(void)
 {
     if (NULL != IrqHandler[Int063_IRQn])
     {
@@ -1225,7 +1225,7 @@ __WEAK void IRQ063_Handler(void)
  ** \brief Int No.064 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ064_Handler(void)
+void IRQ064_Handler(void)
 {
     if (NULL != IrqHandler[Int064_IRQn])
     {
@@ -1238,7 +1238,7 @@ __WEAK void IRQ064_Handler(void)
  ** \brief Int No.065 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ065_Handler(void)
+void IRQ065_Handler(void)
 {
     if (NULL != IrqHandler[Int065_IRQn])
     {
@@ -1251,7 +1251,7 @@ __WEAK void IRQ065_Handler(void)
  ** \brief Int No.066 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ066_Handler(void)
+void IRQ066_Handler(void)
 {
     if (NULL != IrqHandler[Int066_IRQn])
     {
@@ -1264,7 +1264,7 @@ __WEAK void IRQ066_Handler(void)
  ** \brief Int No.067 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ067_Handler(void)
+void IRQ067_Handler(void)
 {
     if (NULL != IrqHandler[Int067_IRQn])
     {
@@ -1277,7 +1277,7 @@ __WEAK void IRQ067_Handler(void)
  ** \brief Int No.068 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ068_Handler(void)
+void IRQ068_Handler(void)
 {
     if (NULL != IrqHandler[Int068_IRQn])
     {
@@ -1290,7 +1290,7 @@ __WEAK void IRQ068_Handler(void)
  ** \brief Int No.069 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ069_Handler(void)
+void IRQ069_Handler(void)
 {
     if (NULL != IrqHandler[Int069_IRQn])
     {
@@ -1303,7 +1303,7 @@ __WEAK void IRQ069_Handler(void)
  ** \brief Int No.070 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ070_Handler(void)
+void IRQ070_Handler(void)
 {
     if (NULL != IrqHandler[Int070_IRQn])
     {
@@ -1316,7 +1316,7 @@ __WEAK void IRQ070_Handler(void)
  ** \brief Int No.071 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ071_Handler(void)
+void IRQ071_Handler(void)
 {
     if (NULL != IrqHandler[Int071_IRQn])
     {
@@ -1329,7 +1329,7 @@ __WEAK void IRQ071_Handler(void)
  ** \brief Int No.072 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ072_Handler(void)
+void IRQ072_Handler(void)
 {
     if (NULL != IrqHandler[Int072_IRQn])
     {
@@ -1342,7 +1342,7 @@ __WEAK void IRQ072_Handler(void)
  ** \brief Int No.073 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ073_Handler(void)
+void IRQ073_Handler(void)
 {
     if (NULL != IrqHandler[Int073_IRQn])
     {
@@ -1355,7 +1355,7 @@ __WEAK void IRQ073_Handler(void)
  ** \brief Int No.074 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ074_Handler(void)
+void IRQ074_Handler(void)
 {
     if (NULL != IrqHandler[Int074_IRQn])
     {
@@ -1368,7 +1368,7 @@ __WEAK void IRQ074_Handler(void)
  ** \brief Int No.075 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ075_Handler(void)
+void IRQ075_Handler(void)
 {
     if (NULL != IrqHandler[Int075_IRQn])
     {
@@ -1381,7 +1381,7 @@ __WEAK void IRQ075_Handler(void)
  ** \brief Int No.076 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ076_Handler(void)
+void IRQ076_Handler(void)
 {
     if (NULL != IrqHandler[Int076_IRQn])
     {
@@ -1394,7 +1394,7 @@ __WEAK void IRQ076_Handler(void)
  ** \brief Int No.077 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ077_Handler(void)
+void IRQ077_Handler(void)
 {
     if (NULL != IrqHandler[Int077_IRQn])
     {
@@ -1407,7 +1407,7 @@ __WEAK void IRQ077_Handler(void)
  ** \brief Int No.078 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ078_Handler(void)
+void IRQ078_Handler(void)
 {
     if (NULL != IrqHandler[Int078_IRQn])
     {
@@ -1420,7 +1420,7 @@ __WEAK void IRQ078_Handler(void)
  ** \brief Int No.079 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ079_Handler(void)
+void IRQ079_Handler(void)
 {
     if (NULL != IrqHandler[Int079_IRQn])
     {
@@ -1433,7 +1433,7 @@ __WEAK void IRQ079_Handler(void)
  ** \brief Int No.080 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ080_Handler(void)
+void IRQ080_Handler(void)
 {
     if (NULL != IrqHandler[Int080_IRQn])
     {
@@ -1446,7 +1446,7 @@ __WEAK void IRQ080_Handler(void)
  ** \brief Int No.081 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ081_Handler(void)
+void IRQ081_Handler(void)
 {
     if (NULL != IrqHandler[Int081_IRQn])
     {
@@ -1459,7 +1459,7 @@ __WEAK void IRQ081_Handler(void)
  ** \brief Int No.082 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ082_Handler(void)
+void IRQ082_Handler(void)
 {
     if (NULL != IrqHandler[Int082_IRQn])
     {
@@ -1472,7 +1472,7 @@ __WEAK void IRQ082_Handler(void)
  ** \brief Int No.083 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ083_Handler(void)
+void IRQ083_Handler(void)
 {
     if (NULL != IrqHandler[Int083_IRQn])
     {
@@ -1485,7 +1485,7 @@ __WEAK void IRQ083_Handler(void)
  ** \brief Int No.084 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ084_Handler(void)
+void IRQ084_Handler(void)
 {
     if (NULL != IrqHandler[Int084_IRQn])
     {
@@ -1498,7 +1498,7 @@ __WEAK void IRQ084_Handler(void)
  ** \brief Int No.085 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ085_Handler(void)
+void IRQ085_Handler(void)
 {
     if (NULL != IrqHandler[Int085_IRQn])
     {
@@ -1511,7 +1511,7 @@ __WEAK void IRQ085_Handler(void)
  ** \brief Int No.086 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ086_Handler(void)
+void IRQ086_Handler(void)
 {
     if (NULL != IrqHandler[Int086_IRQn])
     {
@@ -1524,7 +1524,7 @@ __WEAK void IRQ086_Handler(void)
  ** \brief Int No.087 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ087_Handler(void)
+void IRQ087_Handler(void)
 {
     if (NULL != IrqHandler[Int087_IRQn])
     {
@@ -1537,7 +1537,7 @@ __WEAK void IRQ087_Handler(void)
  ** \brief Int No.088 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ088_Handler(void)
+void IRQ088_Handler(void)
 {
     if (NULL != IrqHandler[Int088_IRQn])
     {
@@ -1550,7 +1550,7 @@ __WEAK void IRQ088_Handler(void)
  ** \brief Int No.089 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ089_Handler(void)
+void IRQ089_Handler(void)
 {
     if (NULL != IrqHandler[Int089_IRQn])
     {
@@ -1563,7 +1563,7 @@ __WEAK void IRQ089_Handler(void)
  ** \brief Int No.090 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ090_Handler(void)
+void IRQ090_Handler(void)
 {
     if (NULL != IrqHandler[Int090_IRQn])
     {
@@ -1576,7 +1576,7 @@ __WEAK void IRQ090_Handler(void)
  ** \brief Int No.091 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ091_Handler(void)
+void IRQ091_Handler(void)
 {
     if (NULL != IrqHandler[Int091_IRQn])
     {
@@ -1589,7 +1589,7 @@ __WEAK void IRQ091_Handler(void)
  ** \brief Int No.092 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ092_Handler(void)
+void IRQ092_Handler(void)
 {
     if (NULL != IrqHandler[Int092_IRQn])
     {
@@ -1602,7 +1602,7 @@ __WEAK void IRQ092_Handler(void)
  ** \brief Int No.093 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ093_Handler(void)
+void IRQ093_Handler(void)
 {
     if (NULL != IrqHandler[Int093_IRQn])
     {
@@ -1615,7 +1615,7 @@ __WEAK void IRQ093_Handler(void)
  ** \brief Int No.094 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ094_Handler(void)
+void IRQ094_Handler(void)
 {
     if (NULL != IrqHandler[Int094_IRQn])
     {
@@ -1628,7 +1628,7 @@ __WEAK void IRQ094_Handler(void)
  ** \brief Int No.095 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ095_Handler(void)
+void IRQ095_Handler(void)
 {
     if (NULL != IrqHandler[Int095_IRQn])
     {
@@ -1641,7 +1641,7 @@ __WEAK void IRQ095_Handler(void)
  ** \brief Int No.096 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ096_Handler(void)
+void IRQ096_Handler(void)
 {
     if (NULL != IrqHandler[Int096_IRQn])
     {
@@ -1654,7 +1654,7 @@ __WEAK void IRQ096_Handler(void)
  ** \brief Int No.097 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ097_Handler(void)
+void IRQ097_Handler(void)
 {
     if (NULL != IrqHandler[Int097_IRQn])
     {
@@ -1667,7 +1667,7 @@ __WEAK void IRQ097_Handler(void)
  ** \brief Int No.098 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ098_Handler(void)
+void IRQ098_Handler(void)
 {
     if (NULL != IrqHandler[Int098_IRQn])
     {
@@ -1680,7 +1680,7 @@ __WEAK void IRQ098_Handler(void)
  ** \brief Int No.099 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ099_Handler(void)
+void IRQ099_Handler(void)
 {
     if (NULL != IrqHandler[Int099_IRQn])
     {
@@ -1693,7 +1693,7 @@ __WEAK void IRQ099_Handler(void)
  ** \brief Int No.100 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ100_Handler(void)
+void IRQ100_Handler(void)
 {
     if (NULL != IrqHandler[Int100_IRQn])
     {
@@ -1706,7 +1706,7 @@ __WEAK void IRQ100_Handler(void)
  ** \brief Int No.101 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ101_Handler(void)
+void IRQ101_Handler(void)
 {
     if (NULL != IrqHandler[Int101_IRQn])
     {
@@ -1719,7 +1719,7 @@ __WEAK void IRQ101_Handler(void)
  ** \brief Int No.102 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ102_Handler(void)
+void IRQ102_Handler(void)
 {
     if (NULL != IrqHandler[Int102_IRQn])
     {
@@ -1732,7 +1732,7 @@ __WEAK void IRQ102_Handler(void)
  ** \brief Int No.103 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ103_Handler(void)
+void IRQ103_Handler(void)
 {
     if (NULL != IrqHandler[Int103_IRQn])
     {
@@ -1745,7 +1745,7 @@ __WEAK void IRQ103_Handler(void)
  ** \brief Int No.104 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ104_Handler(void)
+void IRQ104_Handler(void)
 {
     if (NULL != IrqHandler[Int104_IRQn])
     {
@@ -1758,7 +1758,7 @@ __WEAK void IRQ104_Handler(void)
  ** \brief Int No.105 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ105_Handler(void)
+void IRQ105_Handler(void)
 {
     if (NULL != IrqHandler[Int105_IRQn])
     {
@@ -1771,7 +1771,7 @@ __WEAK void IRQ105_Handler(void)
  ** \brief Int No.106 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ106_Handler(void)
+void IRQ106_Handler(void)
 {
     if (NULL != IrqHandler[Int106_IRQn])
     {
@@ -1784,7 +1784,7 @@ __WEAK void IRQ106_Handler(void)
  ** \brief Int No.107 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ107_Handler(void)
+void IRQ107_Handler(void)
 {
     if (NULL != IrqHandler[Int107_IRQn])
     {
@@ -1797,7 +1797,7 @@ __WEAK void IRQ107_Handler(void)
  ** \brief Int No.108 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ108_Handler(void)
+void IRQ108_Handler(void)
 {
     if (NULL != IrqHandler[Int108_IRQn])
     {
@@ -1810,7 +1810,7 @@ __WEAK void IRQ108_Handler(void)
  ** \brief Int No.109 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ109_Handler(void)
+void IRQ109_Handler(void)
 {
     if (NULL != IrqHandler[Int109_IRQn])
     {
@@ -1823,7 +1823,7 @@ __WEAK void IRQ109_Handler(void)
  ** \brief Int No.110 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ110_Handler(void)
+void IRQ110_Handler(void)
 {
     if (NULL != IrqHandler[Int110_IRQn])
     {
@@ -1836,7 +1836,7 @@ __WEAK void IRQ110_Handler(void)
  ** \brief Int No.111 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ111_Handler(void)
+void IRQ111_Handler(void)
 {
     if (NULL != IrqHandler[Int111_IRQn])
     {
@@ -1849,7 +1849,7 @@ __WEAK void IRQ111_Handler(void)
  ** \brief Int No.112 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ112_Handler(void)
+void IRQ112_Handler(void)
 {
     if (NULL != IrqHandler[Int112_IRQn])
     {
@@ -1862,7 +1862,7 @@ __WEAK void IRQ112_Handler(void)
  ** \brief Int No.113 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ113_Handler(void)
+void IRQ113_Handler(void)
 {
     if (NULL != IrqHandler[Int113_IRQn])
     {
@@ -1875,7 +1875,7 @@ __WEAK void IRQ113_Handler(void)
  ** \brief Int No.114 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ114_Handler(void)
+void IRQ114_Handler(void)
 {
     if (NULL != IrqHandler[Int114_IRQn])
     {
@@ -1888,7 +1888,7 @@ __WEAK void IRQ114_Handler(void)
  ** \brief Int No.115 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ115_Handler(void)
+void IRQ115_Handler(void)
 {
     if (NULL != IrqHandler[Int115_IRQn])
     {
@@ -1901,7 +1901,7 @@ __WEAK void IRQ115_Handler(void)
  ** \brief Int No.116 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ116_Handler(void)
+void IRQ116_Handler(void)
 {
     if (NULL != IrqHandler[Int116_IRQn])
     {
@@ -1914,7 +1914,7 @@ __WEAK void IRQ116_Handler(void)
  ** \brief Int No.117 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ117_Handler(void)
+void IRQ117_Handler(void)
 {
     if (NULL != IrqHandler[Int117_IRQn])
     {
@@ -1927,7 +1927,7 @@ __WEAK void IRQ117_Handler(void)
  ** \brief Int No.118 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ118_Handler(void)
+void IRQ118_Handler(void)
 {
     if (NULL != IrqHandler[Int118_IRQn])
     {
@@ -1940,7 +1940,7 @@ __WEAK void IRQ118_Handler(void)
  ** \brief Int No.119 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ119_Handler(void)
+void IRQ119_Handler(void)
 {
     if (NULL != IrqHandler[Int119_IRQn])
     {
@@ -1953,7 +1953,7 @@ __WEAK void IRQ119_Handler(void)
  ** \brief Int No.120 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ120_Handler(void)
+void IRQ120_Handler(void)
 {
     if (NULL != IrqHandler[Int120_IRQn])
     {
@@ -1966,7 +1966,7 @@ __WEAK void IRQ120_Handler(void)
  ** \brief Int No.121 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ121_Handler(void)
+void IRQ121_Handler(void)
 {
     if (NULL != IrqHandler[Int121_IRQn])
     {
@@ -1979,7 +1979,7 @@ __WEAK void IRQ121_Handler(void)
  ** \brief Int No.122 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ122_Handler(void)
+void IRQ122_Handler(void)
 {
     if (NULL != IrqHandler[Int122_IRQn])
     {
@@ -1992,7 +1992,7 @@ __WEAK void IRQ122_Handler(void)
  ** \brief Int No.123 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ123_Handler(void)
+void IRQ123_Handler(void)
 {
     if (NULL != IrqHandler[Int123_IRQn])
     {
@@ -2005,7 +2005,7 @@ __WEAK void IRQ123_Handler(void)
  ** \brief Int No.124 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ124_Handler(void)
+void IRQ124_Handler(void)
 {
     if (NULL != IrqHandler[Int124_IRQn])
     {
@@ -2018,7 +2018,7 @@ __WEAK void IRQ124_Handler(void)
  ** \brief Int No.125 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ125_Handler(void)
+void IRQ125_Handler(void)
 {
     if (NULL != IrqHandler[Int125_IRQn])
     {
@@ -2031,7 +2031,7 @@ __WEAK void IRQ125_Handler(void)
  ** \brief Int No.126 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ126_Handler(void)
+void IRQ126_Handler(void)
 {
     if (NULL != IrqHandler[Int126_IRQn])
     {
@@ -2044,7 +2044,7 @@ __WEAK void IRQ126_Handler(void)
  ** \brief Int No.127 IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ127_Handler(void)
+void IRQ127_Handler(void)
 {
     if (NULL != IrqHandler[Int127_IRQn])
     {
@@ -2058,7 +2058,7 @@ __WEAK void IRQ127_Handler(void)
  ** \brief Int No.128 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ128_Handler(void)
+void IRQ128_Handler(void)
 {
     uint32_t VSSEL128 = M4_INTC->VSSEL128;
 
@@ -2150,7 +2150,7 @@ __WEAK void IRQ128_Handler(void)
  ** \brief Int No.129 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ129_Handler(void)
+void IRQ129_Handler(void)
 {
     uint32_t VSSEL129 =M4_INTC->VSSEL129;
     uint32_t u32Tmp1 = 0ul;
@@ -2428,7 +2428,7 @@ __WEAK void IRQ129_Handler(void)
  ** \brief Int No.130 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ130_Handler(void)
+void IRQ130_Handler(void)
 {
     uint32_t VSSEL130 = M4_INTC->VSSEL130;
     /* Timer0 Ch. 1 A compare match */
@@ -2488,7 +2488,7 @@ __WEAK void IRQ130_Handler(void)
  ** \brief Int No.131 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ131_Handler(void)
+void IRQ131_Handler(void)
 {
     uint32_t VSSEL131 = M4_INTC->VSSEL131;
     uint32_t u32Tmp1 = 0ul;
@@ -2672,7 +2672,7 @@ __WEAK void IRQ131_Handler(void)
  ** \brief Int No.132 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ132_Handler(void)
+void IRQ132_Handler(void)
 {
     uint32_t VSSEL132 = M4_INTC->VSSEL132;
     uint32_t u32Tmp1 = 0ul;
@@ -2770,7 +2770,7 @@ __WEAK void IRQ132_Handler(void)
  ** \brief Int No.136 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ136_Handler(void)
+void IRQ136_Handler(void)
 {
     uint32_t u32Tmp1 = 0ul;
     uint32_t u32Tmp2 = 0ul;
@@ -2962,7 +2962,7 @@ __WEAK void IRQ136_Handler(void)
  ** \brief Int No.137 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ137_Handler(void)
+void IRQ137_Handler(void)
 {
     uint32_t u32Tmp1 = 0ul;
     uint32_t u32Tmp2 = 0ul;
@@ -3130,7 +3130,7 @@ __WEAK void IRQ137_Handler(void)
  ** \brief Int No.138 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ138_Handler(void)
+void IRQ138_Handler(void)
 {
     uint32_t u32Tmp1 = 0u;
     uint32_t VSSEL138 = M4_INTC->VSSEL138;
@@ -3271,7 +3271,7 @@ __WEAK void IRQ138_Handler(void)
  ** \brief Int No.139 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ139_Handler(void)
+void IRQ139_Handler(void)
 {
     uint32_t u32Tmp1 = 0u;
     uint32_t VSSEL139 = M4_INTC->VSSEL139;
@@ -3347,7 +3347,7 @@ __WEAK void IRQ139_Handler(void)
  ** \brief Int No.140 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ140_Handler(void)
+void IRQ140_Handler(void)
 {
     uint32_t VSSEL140 = M4_INTC->VSSEL140;
     uint32_t u32Tmp1 = 0u;
@@ -3484,7 +3484,7 @@ __WEAK void IRQ140_Handler(void)
  ** \brief Int No.141 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ141_Handler(void)
+void IRQ141_Handler(void)
 {
     uint32_t  VSSEL141 = M4_INTC->VSSEL141;
     uint32_t u32Tmp1 = 0ul;
@@ -3635,7 +3635,7 @@ __WEAK void IRQ141_Handler(void)
  ** \brief Int No.142 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ142_Handler(void)
+void IRQ142_Handler(void)
 {
     uint32_t u32VSSEL142 = M4_INTC->VSSEL142;
     uint16_t u16Tmp = 0u;
@@ -3712,7 +3712,7 @@ __WEAK void IRQ142_Handler(void)
  ** \brief Int No.143 share IRQ handler
  **
  ******************************************************************************/
-__WEAK void IRQ143_Handler(void)
+void IRQ143_Handler(void)
 {
     uint8_t RTIF = 0u;
     uint8_t RTIE = 0u;

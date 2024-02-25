@@ -221,9 +221,15 @@ env.Append(
     CPPPATH=[
         DDL_DIR,
         join(DDL_DIR, "addon"),
+        join(DDL_DIR, "app"),
+        join(DDL_DIR, "board"),
+        join(DDL_DIR, "bsp"),
         join(DDL_DIR, "cmsis"),
         join(DDL_DIR, "common"),
         join(DDL_DIR, "compat"),
+        join(DDL_DIR, "component", "sdio"),
+        join(DDL_DIR, "component", "sdio", "sd_card", "inc"),
+        join(DDL_DIR, "component", "Utility"),
         join(DDL_DIR, "library", "inc"),
         join(DDL_DIR, "startup"),
     ]

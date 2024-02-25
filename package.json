@@ -1,6 +1,6 @@
 {
-  "name": "framework-hc32f46x-ddl",
-  "description": "HC32f46x Device Driver Library",
-  "url": "https://github.com/shadow578/framework-hc32f46x-ddl",
-  "version": "2.2.0"
+  "name": "framework-hc32f460kcta-ddl",
+  "description": "HC32f460KCTA Device Driver Library",
+  "url": "https://github.com/smokeypell/framework-hc32f460kcta-ddl",
+  "version": "0.0.5_beta"
 }

@@ -12,7 +12,7 @@
  ** A detailed description is available at
  ** @link Hc32DdlGroup Hc32 Series Ddl description @endlink
  **
- **   - 2018-10-22  CDT  First version for Hc32 Series Device Driver
+ **   - 2018-9-28  CDT  First version for Hc32 Series Device Driver 
  **     Library.
  **
  ******************************************************************************/
@@ -50,24 +50,24 @@ extern "C"
 /**
  *******************************************************************************
  ** \brief Comment the line below if you will not use the device driver library.
- ** In this case, the application code will be based on direct access to
+ ** In this case, the application code will be based on direct access to 
  ** peripherals registers.
  ******************************************************************************/
-/* #define USE_DEVICE_DRIVER_LIB */
+    /* #define USE_DEVICE_DRIVER_LIB */
 #endif /* USE_DEVICE_DRIVER_LIB */
 
 /**
  *******************************************************************************
- ** \brief Hc32 Series device driver library version number
+ ** \brief Hc32 Series device driver library version number v1.0.0
  ******************************************************************************/
-#define HC32_DDL_VERSION_MAIN           (0x02u) ///< [31:24] main version
-#define HC32_DDL_VERSION_SUB1           (0x02u) ///< [23:16] sub1 version
-#define HC32_DDL_VERSION_SUB2           (0x00u) ///< [15:8]  sub2 version
-#define HC32_DDL_VERSION_RC             (0x00u) ///< [7:0]   release candidate
-#define HC32_DDL_VERSION                ((HC32_DDL_VERSION_MAIN << 24) | \
-                                         (HC32_DDL_VERSION_SUB1 << 16) | \
-                                         (HC32_DDL_VERSION_SUB2 << 8 ) | \
-                                         (HC32_DDL_VERSION_RC))
+#define HC32_DDL_VERSION_MAIN                       0x01u ///< [31:24] main version
+#define HC32_DDL_VERSION_SUB1                       0x00u ///< [23:16] sub1 version
+#define HC32_DDL_VERSION_SUB2                       0x00u ///< [15:8]  sub2 version
+#define HC32_DDL_VERSION_RC                         0x00u ///< [7:0]   release candidate
+#define HC32_DDL_VERSION                            ((HC32_DDL_VERSION_MAIN << 24) | \
+                                                     (HC32_DDL_VERSION_SUB1 << 16) | \
+                                                     (HC32_DDL_VERSION_SUB2 << 8 ) | \
+                                                     (HC32_DDL_VERSION_RC))
 
 /*! Use device driver library */
 #if defined (USE_DEVICE_DRIVER_LIB)
@@ -87,17 +87,13 @@ extern "C"
 #include "hc32f460_can.h"
 #endif /* DDL_CAN_ENABLE */
 
-#if (DDL_CLK_ENABLE == DDL_ON)
-#include "hc32f460_clk.h"
-#endif /* DDL_CLK_ENABLE */
-
 #if (DDL_CMP_ENABLE == DDL_ON)
 #include "hc32f460_cmp.h"
 #endif /* DDL_CMP_ENABLE */
 
-#if (DDL_CRC_ENABLE == DDL_ON)
-#include "hc32f460_crc.h"
-#endif /* DDL_CRC_ENABLE */
+#if (DDL_CLK_ENABLE == DDL_ON)
+#include "hc32f460_clk.h"
+#endif /* DDL_CLK_ENABLE */
 
 #if (DDL_DCU_ENABLE == DDL_ON)
 #include "hc32f460_dcu.h"
@@ -114,10 +110,6 @@ extern "C"
 #if (DDL_EMB_ENABLE == DDL_ON)
 #include "hc32f460_emb.h"
 #endif /* DDL_EMB_ENABLE */
-
-#if (DDL_EVENT_PORT_ENABLE == DDL_ON)
-#include "hc32f460_event_port.h"
-#endif /* DDL_EVENT_PORT_ENABLE */
 
 #if (DDL_EXINT_NMI_SWI_ENABLE == DDL_ON)
 #include "hc32f460_exint_nmi_swi.h"
@@ -158,6 +150,10 @@ extern "C"
 #if (DDL_OTS_ENABLE == DDL_ON)
 #include "hc32f460_ots.h"
 #endif /* DDL_OTS_ENABLE */
+
+#if (DDL_PGA_ENABLE == DDL_ON)
+#include "hc32f460_pga.h"
+#endif /* DDL_PGA_ENABLE */
 
 #if (DDL_PWC_ENABLE == DDL_ON)
 #include "hc32f460_pwc.h"
@@ -242,17 +238,6 @@ extern "C"
 #if (DDL_WDT_ENABLE == DDL_ON)
 #include "hc32f460_wdt.h"
 #endif /* DDL_WDT_ENABLE */
-
-/**
- * @brief Include BSP board's header file
- */
-#if (BSP_EV_HC32F460_LQFP100_V2 == BSP_EV_HC32F460)
-    #include "ev_hc32f460_lqfp100_v2.h"
-#endif /* BSP_EV_HC32F460_LQFP100_V2 */
-
-#if (BSP_EV_HC32F460_LQFP100_V1 == BSP_EV_HC32F460)
-    #include "ev_hc32f460_lqfp100_v1.h"
-#endif /* BSP_EV_HC32F460_LQFP100_V1 */
 
 #endif /* USE_DEVICE_DRIVER_LIB */
 

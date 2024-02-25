@@ -233,6 +233,8 @@ __Vectors:
                 .long       IRQ141_Handler
                 .long       IRQ142_Handler
                 .long       IRQ143_Handler
+
+                .space      (80 * 4)                          /* Interrupts 144 .. 224 are left out */
 __Vectors_End:
                 .equ        __Vectors_Size, __Vectors_End - __Vectors
                 .size       __Vectors, . - __Vectors
@@ -347,8 +349,6 @@ SetSRAM3Wait:
 
                 /* Call the clock system initialization function. */
                 bl          SystemInit
-                /* call __libc_init_array before calling main */
-                bl          __libc_init_array
                 /* Call the application's entry point. */
                 bl          main
                 bx          lr
